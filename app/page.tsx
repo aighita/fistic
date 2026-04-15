@@ -1,26 +1,29 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   ArrowRight,
   BriefcaseBusiness,
-  Camera,
   Clock3,
   Mail,
   MapPin,
-  MessageCircle,
-  MessagesSquare,
-  Music4,
   PartyPopper,
   Phone,
   Sparkles,
   Store,
 } from 'lucide-react';
 
+import {
+  FacebookBrandIcon,
+  InstagramBrandIcon,
+  TikTokBrandIcon,
+  WhatsAppBrandIcon,
+} from '@/components/BrandIcons';
 import BorderGlow from '@/components/BorderGlow';
+import HeroTiltedCarousel from '@/components/HeroTiltedCarousel';
 import Masonry from '@/components/Masonry';
 import PillNav from '@/components/PillNav';
 import ShinyText from '@/components/ShinyText';
-import TiltedCard from '@/components/TiltedCard';
 
 import clatiteCapsuni from '@/assets/clatite_cu_capsuni.png';
 import clatiteFistic from '@/assets/clatite_cu_fistic.png';
@@ -40,8 +43,47 @@ const colors = {
   raspberryDeep: '#E30B5C',
 };
 
-const displayFont = "'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif";
+const displayFont = "'Avenir Next', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif";
 const scriptFont = "'Snell Roundhand', 'Brush Script MT', 'Segoe Script', cursive";
+
+const heroCarouselItems = [
+  {
+    src: clatiteFistic.src,
+    alt: 'Clatita signature cu fistic',
+    title: 'Clatita Signature cu Fistic',
+    badge: 'Crema de brand',
+  },
+  {
+    src: clatiteOreo.src,
+    alt: 'Clatita cu Oreo si ciocolata alba',
+    title: 'Clatita Oreo & Ciocolata Alba',
+    badge: 'Texturi contrastante',
+  },
+  {
+    src: clatiteCapsuni.src,
+    alt: 'Clatita cu capsuni',
+    title: 'Clatita cu Capsuni',
+    badge: 'Fresh & fotogenic',
+  },
+  {
+    src: gogosiCiocolataFructe.src,
+    alt: 'Mini-gogosi cu ciocolata si fructe',
+    title: 'Mini-Gogosi cu Fructe',
+    badge: 'Favorita de targ',
+  },
+  {
+    src: gogosiFistic.src,
+    alt: 'Mini-gogosi cu fistic',
+    title: 'Mini-Gogosi cu Fistic',
+    badge: 'Accent verde FISTIC',
+  },
+  {
+    src: gogosiBomboane.src,
+    alt: 'Mini-gogosi cu bombonele',
+    title: 'Mini-Gogosi cu Bomboane',
+    badge: 'Pentru momente festive',
+  },
+];
 
 const menuItems = [
   {
@@ -114,18 +156,27 @@ const serviceCards = [
 
 const fairMoments = [
   {
-    title: 'Atmosfera de targ',
-    text: 'Lumini calde, miros de aluat proaspat si deserturi care aduna oamenii in jurul rulotei.',
+    eyebrow: 'Prezenta vizibila',
+    title: 'Stand care atrage instant',
+    text: 'Lumina, mirosul de desert proaspat si plating-ul clar fac rulota usor de reperat si usor de tinut minte.',
+    highlight: 'Bun pentru zone cu trafic mare si flux continuu de public.',
+    tags: ['targuri', 'festivaluri', 'piatete'],
     image: gogosiCiocolataFructe,
   },
   {
-    title: 'Ritm de weekend',
-    text: 'Servire rapida, plating vesel si o prezenta care merge la fel de bine in parc, piata sau festival.',
+    eyebrow: 'Operare fluida',
+    title: 'Servire rapida, fara haos vizual',
+    text: 'Formatul FISTIC functioneaza bine in evenimente dinamice: comanda usor de inteles, produs fotogenic si livrare coerenta.',
+    highlight: 'Se potriveste atat pentru seri aglomerate, cat si pentru intervale corporate.',
+    tags: ['private', 'corporate', 'street food'],
     image: clatiteCapsuni,
   },
   {
-    title: 'Momente care raman',
-    text: 'FISTIC nu e doar un desert, ci o oprire dulce pe care lumea o cauta din nou la urmatorul eveniment.',
+    eyebrow: 'Memorabilitate',
+    title: 'Brand dulce, nu doar produs bun',
+    text: 'Oamenii nu retin doar desertul, ci si oprirea: cromatica, atmosfera si felul in care arata tot setup-ul.',
+    highlight: 'Genul de prezenta care merge bine si in poze, si in recomandari.',
+    tags: ['instagram', 'recomandari', 'revenire'],
     image: gogosiFistic,
   },
 ];
@@ -134,27 +185,19 @@ const socialLinks = [
   {
     label: 'Instagram',
     href: '#contact',
-    icon: Camera,
+    icon: InstagramBrandIcon,
   },
   {
     label: 'Facebook',
     href: '#contact',
-    icon: MessagesSquare,
+    icon: FacebookBrandIcon,
   },
   {
     label: 'TikTok',
     href: '#contact',
-    icon: Music4,
+    icon: TikTokBrandIcon,
   },
 ];
-
-const navLogo = `data:image/svg+xml;utf8,${encodeURIComponent(`
-<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" fill="none">
-  <rect width="96" height="96" rx="48" fill="${colors.pistachio}"/>
-  <path d="M30 24h38v10H42v12h22v10H42v16H30V24Z" fill="${colors.chocolate}"/>
-  <circle cx="70" cy="26" r="7" fill="${colors.raspberry}"/>
-</svg>
-`)}`;
 
 export const metadata: Metadata = {
   title: 'FISTIC | Clatite si mini-gogosi in Craiova',
@@ -166,9 +209,6 @@ export default function Home() {
   return (
     <>
       <PillNav
-        logo={navLogo}
-        logoHref="#hero"
-        logoAlt="Logo FISTIC"
         items={[
           { label: 'Meniu & Galerie', href: '#galerie' },
           { label: 'Servicii', href: '#servicii' },
@@ -179,6 +219,7 @@ export default function Home() {
         pillTextColor={colors.chocolate}
         hoveredPillTextColor={colors.creamSoft}
         initialLoadAnimation={false}
+        align="start"
       />
 
       <a
@@ -189,7 +230,7 @@ export default function Home() {
         className="fixed bottom-5 right-5 z-[1000] inline-flex h-16 w-16 items-center justify-center rounded-full shadow-[0_18px_45px_rgba(224,64,102,0.35)] transition-transform duration-300 hover:scale-105"
         style={{ backgroundColor: colors.raspberry }}
       >
-        <MessageCircle className="h-7 w-7 text-white" />
+        <WhatsAppBrandIcon className="h-7 w-7 text-white" />
       </a>
 
       <main
@@ -238,8 +279,8 @@ export default function Home() {
                 color: colors.chocolate,
               }}
             >
-              <Sparkles className="h-4 w-4" />
-              Fistic Craiova
+              <MapPin className="h-4 w-4" />
+              Craiova
             </div>
 
             <div className="relative mb-10 w-fit">
@@ -295,91 +336,20 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="mt-12 grid gap-4 sm:grid-cols-3">
-              {[
-                'Clatite fine si mini-gogosi cu plating spectaculos',
-                'Weekend de weekend, acolo unde orasul vrea ceva dulce',
-                'Format potrivit pentru targuri, petreceri si colaborari',
-              ].map((text) => (
-                <div
-                  key={text}
-                  className="rounded-[28px] border px-5 py-4 text-sm leading-6 backdrop-blur-sm"
-                  style={{
-                    borderColor: 'rgba(61, 35, 20, 0.12)',
-                    backgroundColor: 'rgba(253, 246, 227, 0.72)',
-                  }}
-                >
-                  {text}
-                </div>
-              ))}
+            <div
+              className="mt-12 w-fit rounded-[28px] border px-5 py-4 text-sm leading-7 backdrop-blur-sm sm:text-base"
+              style={{
+                borderColor: 'rgba(61, 35, 20, 0.12)',
+                backgroundColor: 'rgba(253, 246, 227, 0.72)',
+              }}
+            >
+              <span className="font-semibold">3 aprilie - 3 mai</span> la Targul de Paste Craiova,
+              cu posibilitate de activari private si corporate in perioada evenimentului.
             </div>
           </div>
 
           <div className="relative flex items-center justify-center lg:justify-end">
-            <div className="grid w-full max-w-2xl gap-6 md:grid-cols-[1.1fr_0.9fr]">
-              <div className="md:row-span-2">
-                <TiltedCard
-                  imageSrc={clatiteFistic.src}
-                  altText="Clatita signature cu fistic"
-                  captionText="Clatita Signature cu Fistic"
-                  containerHeight="520px"
-                  imageHeight="520px"
-                  imageWidth="100%"
-                  containerWidth="100%"
-                  rotateAmplitude={10}
-                  scaleOnHover={1.03}
-                  showMobileWarning={false}
-                  showTooltip={false}
-                  displayOverlayContent
-                  overlayContent={
-                    <div className="m-4 inline-flex rounded-full bg-[#FAF0E6]/92 px-4 py-2 text-sm font-semibold text-[#3D2314] shadow-lg">
-                      Signature cu fistic
-                    </div>
-                  }
-                />
-              </div>
-
-              <TiltedCard
-                imageSrc={gogosiCiocolataFructe.src}
-                altText="Mini-gogosi cu fructe si ciocolata"
-                captionText="Mini-Gogosi cu Fructe"
-                containerHeight="250px"
-                imageHeight="250px"
-                imageWidth="100%"
-                containerWidth="100%"
-                rotateAmplitude={12}
-                scaleOnHover={1.04}
-                showMobileWarning={false}
-                displayOverlayContent
-                overlayContent={
-                  <div className="m-4 inline-flex rounded-full px-4 py-2 text-sm font-semibold text-white shadow-lg">
-                    Weekend hit
-                  </div>
-                }
-              />
-
-              <TiltedCard
-                imageSrc={clatiteOreo.src}
-                altText="Clatita cu Oreo si ciocolata alba"
-                captionText="Oreo & Ciocolata Alba"
-                containerHeight="250px"
-                imageHeight="250px"
-                imageWidth="100%"
-                containerWidth="100%"
-                rotateAmplitude={12}
-                scaleOnHover={1.04}
-                showMobileWarning={false}
-                displayOverlayContent
-                overlayContent={
-                  <div
-                    className="m-4 inline-flex rounded-full px-4 py-2 text-sm font-semibold shadow-lg"
-                    style={{ backgroundColor: 'rgba(147, 197, 114, 0.92)', color: colors.chocolate }}
-                  >
-                    Oreo & ciocolata alba
-                  </div>
-                }
-              />
-            </div>
+            <HeroTiltedCarousel items={heroCarouselItems} />
           </div>
         </section>
 
@@ -397,10 +367,6 @@ export default function Home() {
             <h2 className="text-4xl sm:text-5xl" style={{ fontFamily: displayFont }}>
               Ce pregatim bun?
             </h2>
-            <p className="text-lg leading-8" style={{ color: colors.chocolateSoft }}>
-              Exact ce trebuie pentru un stand memorabil: produse fotogenice, topping-uri generoase
-              si o prezentare care deschide pofta din primul scroll.
-            </p>
           </div>
 
           <div className="mt-12 rounded-[36px] border p-4 sm:p-6" style={{ borderColor: 'rgba(61, 35, 20, 0.12)' }}>
@@ -429,22 +395,64 @@ export default function Home() {
                 colors={[colors.pistachioSoft, colors.raspberry, '#f7d7a8']}
                 fillOpacity={0.35}
               >
-                <div className="h-full p-5">
-                  <div className="overflow-hidden rounded-[24px]">
+                <article className="flex h-full flex-col p-4">
+                  <div className="relative overflow-hidden rounded-[26px]">
                     <Image
                       src={moment.image}
                       alt={moment.title}
-                      className="h-64 w-full object-cover"
+                      className="h-72 w-full object-cover transition-transform duration-500 hover:scale-[1.03]"
                       priority={index === 0}
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#3D2314]/75 via-[#3D2314]/18 to-transparent" />
+                    <div className="absolute left-4 top-4 inline-flex rounded-full bg-[#FDF6E3]/90 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#3D2314] shadow-sm">
+                      {moment.eyebrow}
+                    </div>
+                    <div className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#E04066] text-sm font-bold text-white shadow-sm">
+                      0{index + 1}
+                    </div>
+                    <div className="absolute inset-x-0 bottom-0 p-5">
+                      <h3
+                        className="max-w-[14ch] text-2xl leading-tight text-[#FDF6E3]"
+                        style={{ fontFamily: displayFont }}
+                      >
+                        {moment.title}
+                      </h3>
+                    </div>
                   </div>
-                  <h3 className="mt-5 text-2xl" style={{ fontFamily: displayFont }}>
-                    {moment.title}
-                  </h3>
-                  <p className="mt-3 text-base leading-7" style={{ color: colors.chocolateSoft }}>
-                    {moment.text}
-                  </p>
-                </div>
+
+                  <div className="flex flex-1 flex-col px-2 pb-2 pt-5">
+                    <p className="text-base leading-7" style={{ color: colors.chocolateSoft }}>
+                      {moment.text}
+                    </p>
+
+                    <div
+                      className="mt-5 rounded-[22px] border px-4 py-4 text-sm leading-6"
+                      style={{
+                        borderColor: 'rgba(61, 35, 20, 0.1)',
+                        backgroundColor: 'rgba(255, 255, 255, 0.62)',
+                        color: colors.chocolate,
+                      }}
+                    >
+                      {moment.highlight}
+                    </div>
+
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {moment.tags.map(tag => (
+                        <span
+                          key={tag}
+                          className="rounded-full px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em]"
+                          style={{
+                            backgroundColor:
+                              index === 1 ? 'rgba(224, 64, 102, 0.12)' : 'rgba(147, 197, 114, 0.16)',
+                            color: colors.chocolate,
+                          }}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </article>
               </BorderGlow>
             ))}
           </div>
@@ -473,7 +481,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-3xl text-[#3D2314]" style={{ fontFamily: displayFont }}>
-                      Ne gasesti weekendul acesta la:
+                      Ne gasesti in perioada 3 aprilie - 3 mai la:
                     </p>
                     <p className="mt-3 text-lg leading-8 text-[#3D2314]">
                       Targul de Paste Craiova, Parcul Nicolae Romanescu.
@@ -484,10 +492,10 @@ export default function Home() {
                   <div className="rounded-[24px] bg-white/65 p-5 text-[#3D2314]">
                     <Clock3 className="h-5 w-5" />
                     <p className="mt-3 text-sm font-semibold uppercase tracking-[0.14em]">
-                      Program de weekend
+                      Program extins
                     </p>
                     <p className="mt-2 text-base leading-7">
-                      Dupa-amieze lungi, seri aglomerate si deserturi pregatite continuu.
+                      Prezenta constanta pe toata perioada targului, nu doar in weekend.
                     </p>
                   </div>
                   <div className="rounded-[24px] bg-white/65 p-5 text-[#3D2314]">
@@ -635,7 +643,7 @@ export default function Home() {
                     backgroundColor: 'rgba(224, 64, 102, 0.08)',
                   }}
                 >
-                  <MessageCircle className="h-6 w-6" style={{ color: colors.raspberryDeep }} />
+                  <WhatsAppBrandIcon className="h-6 w-6" style={{ color: colors.raspberryDeep }} />
                   <p className="mt-5 text-sm font-semibold uppercase tracking-[0.16em]">WhatsApp</p>
                   <p className="mt-2 text-2xl" style={{ fontFamily: displayFont }}>Mesaj rapid</p>
                   <p className="mt-2 text-sm leading-6" style={{ color: colors.chocolateSoft }}>
@@ -728,9 +736,15 @@ export default function Home() {
             </div>
 
             <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium" style={{ color: colors.chocolateSoft }}>
-              <span>Termeni si Conditii</span>
-              <span>Politica de Confidentialitate</span>
-              <span>ANPC</span>
+              <Link href="/termeni-si-conditii" className="transition-colors hover:text-[#3D2314]">
+                Termeni si Conditii
+              </Link>
+              <Link href="/politica-de-confidentialitate" className="transition-colors hover:text-[#3D2314]">
+                Politica de Confidentialitate
+              </Link>
+              <Link href="/anpc" className="transition-colors hover:text-[#3D2314]">
+                ANPC
+              </Link>
             </div>
           </div>
         </footer>
