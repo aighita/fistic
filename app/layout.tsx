@@ -4,6 +4,17 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "FISTIC",
   description: "Clatite fine si mini-gogosi pentru targuri si evenimente in Craiova.",
+  openGraph: {
+    title: "FISTIC",
+    description: "Clatite fine si mini-gogosi pentru targuri si evenimente in Craiova.",
+    type: "website",
+    locale: "ro_RO",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FISTIC",
+    description: "Clatite fine si mini-gogosi pentru targuri si evenimente in Craiova.",
+  },
 };
 
 export default function RootLayout({
