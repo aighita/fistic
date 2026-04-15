@@ -12,7 +12,6 @@ const colors = {
   creamSoft: '#FDF6E3',
   chocolate: '#3D2314',
   chocolateSoft: '#6B4A33',
-  raspberry: '#E04066',
 };
 
 const size = {
@@ -20,15 +19,17 @@ const size = {
   height: 630,
 };
 
-async function loadBase64Asset(relativePath: string) {
-  const file = await readFile(join(process.cwd(), relativePath), 'base64');
+const assetsDir = join(process.cwd(), 'assets');
+
+async function loadBase64Asset(fileName: string) {
+  const file = await readFile(join(assetsDir, fileName), 'base64');
   return `data:image/png;base64,${file}`;
 }
 
 export async function generateSocialImage(kind: 'og' | 'twitter') {
-  const logoSrc = await loadBase64Asset('assets/fistic-logo.png');
-  const productSrc = await loadBase64Asset('assets/clatite_cu_fistic.png');
-  const accentSrc = await loadBase64Asset('assets/gogosi-cu-ciocolata-si-fructe.png');
+  const logoSrc = await loadBase64Asset('fistic-logo.png');
+  const productSrc = await loadBase64Asset('clatite_cu_fistic.png');
+  const accentSrc = await loadBase64Asset('gogosi-cu-ciocolata-si-fructe.png');
 
   return new ImageResponse(
     (
@@ -77,7 +78,7 @@ export async function generateSocialImage(kind: 'og' | 'twitter') {
                   display: 'flex',
                   alignItems: 'center',
                   gap: 12,
-                  width: 'fit-content',
+                  alignSelf: 'flex-start',
                   padding: '12px 20px',
                   borderRadius: 999,
                   background: 'rgba(147,197,114,0.18)',
@@ -94,8 +95,8 @@ export async function generateSocialImage(kind: 'og' | 'twitter') {
                 <img
                   src={logoSrc}
                   alt="FISTIC"
-                  width="104"
-                  height="104"
+                  width={104}
+                  height={104}
                   style={{ borderRadius: 28 }}
                 />
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
@@ -209,6 +210,7 @@ export async function generateSocialImage(kind: 'og' | 'twitter') {
             />
             <div
               style={{
+                display: 'flex',
                 position: 'absolute',
                 width: 248,
                 height: 248,
@@ -223,8 +225,8 @@ export async function generateSocialImage(kind: 'og' | 'twitter') {
               <img
                 src={accentSrc}
                 alt=""
-                width="248"
-                height="248"
+                width={248}
+                height={248}
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
@@ -244,8 +246,8 @@ export async function generateSocialImage(kind: 'og' | 'twitter') {
               <img
                 src={productSrc}
                 alt="Clatita cu fistic"
-                width="402"
-                height="486"
+                width={402}
+                height={486}
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
