@@ -1,7 +1,10 @@
 'use client';
 
+import Image, { type StaticImageData } from 'next/image';
 import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+
+import { Skeleton } from '@/components/ui/skeleton';
 
 const useMedia = (queries: string[], values: number[], defaultValue: number): number => {
   const get = useCallback(() => {
@@ -46,22 +49,9 @@ const useMeasure = <T extends HTMLElement>() => {
   return [ref, size] as const;
 };
 
-const preloadImages = async (urls: string[]): Promise<void> => {
-  await Promise.all(
-    urls.map(
-      src =>
-        new Promise<void>(resolve => {
-          const img = new Image();
-          img.src = src;
-          img.onload = img.onerror = () => resolve();
-        })
-    )
-  );
-};
-
 interface Item {
   id: string;
-  img: string;
+  img: string | StaticImageData;
   url?: string;
   height: number;
   title?: string;
@@ -107,7 +97,7 @@ const Masonry: React.FC<MasonryProps> = ({
   );
 
   const [containerRef, { width }] = useMeasure<HTMLDivElement>();
-  const [imagesReady, setImagesReady] = useState(false);
+  const [loadedItems, setLoadedItems] = useState<Record<string, boolean>>({});
 
   const getInitialPosition = useCallback((item: GridItem) => {
     const containerRect = containerRef.current?.getBoundingClientRect();
@@ -138,10 +128,6 @@ const Masonry: React.FC<MasonryProps> = ({
     }
   }, [animateFrom, containerRef]);
 
-  useEffect(() => {
-    preloadImages(items.map(i => i.img)).then(() => setImagesReady(true));
-  }, [items]);
-
   const grid = useMemo<GridItem[]>(() => {
     if (!width) return [];
     const colHeights = new Array(columns).fill(0);
@@ -170,8 +156,6 @@ const Masonry: React.FC<MasonryProps> = ({
   }, [grid]);
 
   useLayoutEffect(() => {
-    if (!imagesReady) return;
-
     grid.forEach((item, index) => {
       const selector = `[data-key="${item.id}"]`;
       const animProps = { x: item.x, y: item.y, width: item.w, height: item.h };
@@ -208,7 +192,7 @@ const Masonry: React.FC<MasonryProps> = ({
     });
 
     hasMounted.current = true;
-  }, [blurToFocus, duration, ease, getInitialPosition, grid, imagesReady, stagger]);
+  }, [blurToFocus, duration, ease, getInitialPosition, grid, stagger]);
 
   const handleMouseEnter = (id: string, element: HTMLElement) => {
     if (scaleOnHover) {
@@ -264,14 +248,35 @@ const Masonry: React.FC<MasonryProps> = ({
           onMouseLeave={e => handleMouseLeave(item.id, e.currentTarget)}
         >
           <div
-            className="relative w-full h-full bg-cover bg-center rounded-[10px] shadow-[0px_10px_50px_-10px_rgba(0,0,0,0.2)] uppercase text-[10px] leading-[10px]"
+            className="relative h-full w-full overflow-hidden rounded-[10px] shadow-[0px_10px_50px_-10px_rgba(0,0,0,0.2)] uppercase text-[10px] leading-[10px]"
             style={{
-              backgroundImage: `url(${item.img})`,
-              backgroundSize: item.imageSize ?? 'cover',
-              backgroundRepeat: 'no-repeat',
               backgroundColor: item.imageBackground ?? '#fff',
             }}
           >
+            <Skeleton
+              className="absolute inset-0 rounded-[10px]"
+              style={{
+                background:
+                  'linear-gradient(135deg, rgba(253,246,227,0.92) 0%, rgba(169,194,129,0.24) 100%)',
+              }}
+            />
+            <Image
+              src={item.img}
+              alt={item.title ?? 'FISTIC dessert'}
+              fill
+              sizes="(min-width: 1500px) 18vw, (min-width: 1000px) 22vw, (min-width: 600px) 30vw, (min-width: 400px) 45vw, 100vw"
+              className={`rounded-[10px] transition-opacity duration-500 ${
+                loadedItems[item.id] ? 'opacity-100' : 'opacity-0'
+              }`}
+              style={{
+                objectFit: item.imageSize === 'contain' ? 'contain' : 'cover',
+              }}
+              onLoad={() =>
+                setLoadedItems(current =>
+                  current[item.id] ? current : { ...current, [item.id]: true }
+                )
+              }
+            />
             {colorShiftOnHover && (
               <div className="color-overlay absolute inset-0 rounded-[10px] bg-gradient-to-tr from-pink-500/50 to-sky-500/50 opacity-0 pointer-events-none" />
             )}

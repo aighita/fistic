@@ -31,6 +31,7 @@ import clatiteOreo from '@/assets/clatite_cu_oreo.png';
 import gogosiBomboane from '@/assets/gogosi_cu_bomboane.png';
 import gogosiCiocolataFructe from '@/assets/gogosi-cu-ciocolata-si-fructe.png';
 import gogosiFistic from '@/assets/gogosi-cu-fistic.png';
+import anpcLogo from '@/assets/anpc.png';
 
 const colors = {
   pistachio: '#93C572',
@@ -45,6 +46,15 @@ const colors = {
 
 const displayFont = "'Avenir Next', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif";
 const scriptFont = "'Snell Roundhand', 'Brush Script MT', 'Segoe Script', cursive";
+const phoneNumber = '+40784370666';
+const phoneDisplay = '+40 784 370 666';
+const whatsappInfoMessage =
+  'Salut! Vreau sa aflu mai multe despre FISTIC.';
+const whatsappBookingMessage =
+  'Salut! Vreau sa rezerv rulota FISTIC.';
+const emailAddress = 'fisticsupreme@gmail.com';
+const tiktokHandle = 'adi.mitrache';
+const tiktokUrl = 'https://www.tiktok.com/@adi.mitrache';
 
 const heroCarouselItems = [
   {
@@ -88,7 +98,7 @@ const heroCarouselItems = [
 const menuItems = [
   {
     id: 'clatita-fistic',
-    img: clatiteFistic.src,
+    img: clatiteFistic,
     title: 'Clatita Signature cu Fistic',
     subtitle: 'Cremoasa, verde si memorabila din prima privire.',
     height: 720,
@@ -96,7 +106,7 @@ const menuItems = [
   },
   {
     id: 'oreo-alba',
-    img: clatiteOreo.src,
+    img: clatiteOreo,
     title: 'Clatita Oreo & Ciocolata Alba',
     subtitle: 'Texturi contrastante si un finish generos.',
     height: 640,
@@ -104,7 +114,7 @@ const menuItems = [
   },
   {
     id: 'capsuni',
-    img: clatiteCapsuni.src,
+    img: clatiteCapsuni,
     title: 'Clatita cu Capsuni',
     subtitle: 'Fructata, proaspata si perfecta pentru pofta de weekend.',
     height: 560,
@@ -112,7 +122,7 @@ const menuItems = [
   },
   {
     id: 'fructe-padure',
-    img: gogosiCiocolataFructe.src,
+    img: gogosiCiocolataFructe,
     title: 'Mini-Gogosi cu Fructe',
     subtitle: 'Glazuri bogate si topping-uri care atrag instant.',
     height: 700,
@@ -120,7 +130,7 @@ const menuItems = [
   },
   {
     id: 'gogosi-fistic',
-    img: gogosiFistic.src,
+    img: gogosiFistic,
     title: 'Mini-Gogosi cu Fistic',
     subtitle: 'Crocante la exterior, moi in interior, cu accent de brand.',
     height: 620,
@@ -128,7 +138,7 @@ const menuItems = [
   },
   {
     id: 'gogosi-bomboane',
-    img: gogosiBomboane.src,
+    img: gogosiBomboane,
     title: 'Mini-Gogosi cu Bomboane',
     subtitle: 'Jucause, colorate si facute pentru momente festive.',
     height: 540,
@@ -184,17 +194,17 @@ const fairMoments = [
 const socialLinks = [
   {
     label: 'Instagram',
-    href: '#contact',
+    href: 'https://www.instagram.com/',
     icon: InstagramBrandIcon,
   },
   {
     label: 'Facebook',
-    href: '#contact',
+    href: 'https://www.facebook.com/andreigrigore.mitrachepredut',
     icon: FacebookBrandIcon,
   },
   {
-    label: 'TikTok',
-    href: '#contact',
+    label: `TikTok: ${tiktokHandle}`,
+    href: tiktokUrl,
     icon: TikTokBrandIcon,
   },
 ];
@@ -223,7 +233,7 @@ export default function Home() {
       />
 
       <a
-        href="https://wa.me/40700000000?text=Salut!%20Vreau%20sa%20aflu%20mai%20multe%20despre%20FISTIC."
+        href={`https://wa.me/${phoneNumber.replace('+', '')}?text=${encodeURIComponent(whatsappInfoMessage)}`}
         target="_blank"
         rel="noreferrer"
         aria-label="Scrie-ne pe WhatsApp"
@@ -618,7 +628,7 @@ export default function Home() {
 
               <div className="grid gap-5 md:grid-cols-2">
                 <a
-                  href="tel:+40700000000"
+                  href={`tel:${phoneNumber}`}
                   className="rounded-[28px] border p-6 transition-transform duration-300 hover:-translate-y-1"
                   style={{
                     borderColor: 'rgba(61, 35, 20, 0.1)',
@@ -627,14 +637,14 @@ export default function Home() {
                 >
                   <Phone className="h-6 w-6" style={{ color: colors.raspberryDeep }} />
                   <p className="mt-5 text-sm font-semibold uppercase tracking-[0.16em]">Telefon</p>
-                  <p className="mt-2 text-2xl" style={{ fontFamily: displayFont }}>07XX XXX XXX</p>
+                  <p className="mt-2 text-2xl" style={{ fontFamily: displayFont }}>{phoneDisplay}</p>
                   <p className="mt-2 text-sm leading-6" style={{ color: colors.chocolateSoft }}>
                     Link direct pentru apel de pe mobil.
                   </p>
                 </a>
 
                 <a
-                  href="https://wa.me/40700000000?text=Salut!%20Vreau%20sa%20rezerv%20rulota%20FISTIC."
+                  href={`https://wa.me/${phoneNumber.replace('+', '')}?text=${encodeURIComponent(whatsappBookingMessage)}`}
                   target="_blank"
                   rel="noreferrer"
                   className="rounded-[28px] border p-6 transition-transform duration-300 hover:-translate-y-1"
@@ -652,8 +662,8 @@ export default function Home() {
                 </a>
 
                 <a
-                  href="mailto:salut@fistic-craiova.ro"
-                  className="rounded-[28px] border p-6 transition-transform duration-300 hover:-translate-y-1"
+                  href={`mailto:${emailAddress}`}
+                  className="rounded-[28px] border p-4 transition-transform duration-300 hover:-translate-y-1"
                   style={{
                     borderColor: 'rgba(61, 35, 20, 0.1)',
                     backgroundColor: 'rgba(255,255,255,0.72)',
@@ -661,7 +671,12 @@ export default function Home() {
                 >
                   <Mail className="h-6 w-6" style={{ color: colors.pistachio }} />
                   <p className="mt-5 text-sm font-semibold uppercase tracking-[0.16em]">Email</p>
-                  <p className="mt-2 text-2xl" style={{ fontFamily: displayFont }}>salut@fistic-craiova.ro</p>
+                  <p
+                    className="mt-2 break-all text-lg sm:text-xl"
+                    style={{ fontFamily: displayFont }}
+                  >
+                    {emailAddress}
+                  </p>
                   <p className="mt-2 text-sm leading-6" style={{ color: colors.chocolateSoft }}>
                     Potrivit pentru cereri corporate sau colaborari planificate.
                   </p>
@@ -688,13 +703,15 @@ export default function Home() {
                         <a
                           key={social.label}
                           href={social.href}
+                          target={social.href.startsWith('http') ? '_blank' : undefined}
+                          rel={social.href.startsWith('http') ? 'noreferrer' : undefined}
                           className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold"
                           style={{
                             backgroundColor: 'rgba(147, 197, 114, 0.14)',
                             color: colors.chocolate,
                           }}
                         >
-                          <Icon className="h-4 w-4" />
+                          <Icon className="h-3 w-3" />
                           {social.label}
                         </a>
                       );
@@ -742,8 +759,12 @@ export default function Home() {
               <Link href="/politica-de-confidentialitate" className="transition-colors hover:text-[#3D2314]">
                 Politica de Confidentialitate
               </Link>
-              <Link href="/anpc" className="transition-colors hover:text-[#3D2314]">
-                ANPC
+              <Link href="/anpc" className="transition-opacity hover:opacity-85" aria-label="Informatii ANPC">
+                <Image
+                  src={anpcLogo}
+                  alt="ANPC"
+                  className="h-10 w-auto"
+                />
               </Link>
             </div>
           </div>
