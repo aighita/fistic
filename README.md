@@ -1,7 +1,7 @@
 # FISTIC
 
 <p align="center">
-  <img src="./assets/fistic-logo.png" alt="FISTIC logo" width="180" />
+  <img src="./assets/fistic-logo.webp" alt="FISTIC logo" width="180" />
 </p>
 
 <p align="center">
@@ -20,9 +20,9 @@
 ## Preview
 
 <p align="center">
-  <img src="./assets/clatite_cu_fistic.png" alt="FISTIC pistachio crepe" width="30%" />
-  <img src="./assets/gogosi-cu-ciocolata-si-fructe.png" alt="FISTIC mini donuts" width="30%" />
-  <img src="./assets/clatite_cu_oreo.png" alt="FISTIC Oreo crepe" width="30%" />
+  <img src="./assets/clatite_cu_fistic.webp" alt="FISTIC pistachio crepe" width="30%" />
+  <img src="./assets/gogosi-cu-ciocolata-si-fructe.webp" alt="FISTIC mini donuts" width="30%" />
+  <img src="./assets/clatite_cu_oreo.webp" alt="FISTIC Oreo crepe" width="30%" />
 </p>
 
 Note: the project also includes code-generated Open Graph and Twitter images through `next/og`.  

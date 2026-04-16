@@ -25,12 +25,12 @@ import Masonry from '@/components/Masonry';
 import PillNav from '@/components/PillNav';
 import ShinyText from '@/components/ShinyText';
 
-import clatiteCapsuni from '@/assets/clatite_cu_capsuni.png';
-import clatiteFistic from '@/assets/clatite_cu_fistic.png';
-import clatiteOreo from '@/assets/clatite_cu_oreo.png';
-import gogosiBomboane from '@/assets/gogosi_cu_bomboane.png';
-import gogosiCiocolataFructe from '@/assets/gogosi-cu-ciocolata-si-fructe.png';
-import gogosiFistic from '@/assets/gogosi-cu-fistic.png';
+import clatiteCapsuni from '@/assets/clatite_cu_capsuni.webp';
+import clatiteFistic from '@/assets/clatite_cu_fistic.webp';
+import clatiteOreo from '@/assets/clatite_cu_oreo.webp';
+import gogosiBomboane from '@/assets/gogosi_cu_bomboane.webp';
+import gogosiCiocolataFructe from '@/assets/gogosi-cu-ciocolata-si-fructe.webp';
+import gogosiFistic from '@/assets/gogosi-cu-fistic.webp';
 import anpcLogo from '@/assets/anpc.png';
 
 const colors = {
@@ -639,7 +639,7 @@ export default function Home() {
                   <p className="mt-5 text-sm font-semibold uppercase tracking-[0.16em]">Telefon</p>
                   <p className="mt-2 text-2xl" style={{ fontFamily: displayFont }}>{phoneDisplay}</p>
                   <p className="mt-2 text-sm leading-6" style={{ color: colors.chocolateSoft }}>
-                    Link direct pentru apel de pe mobil.
+                    Apel direct de pe mobil.
                   </p>
                 </a>
 

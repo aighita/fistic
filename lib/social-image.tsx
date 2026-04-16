@@ -23,13 +23,14 @@ const assetsDir = join(process.cwd(), 'assets');
 
 async function loadBase64Asset(fileName: string) {
   const file = await readFile(join(assetsDir, fileName), 'base64');
-  return `data:image/png;base64,${file}`;
+  const mimeType = fileName.endsWith('.webp') ? 'image/webp' : 'image/png';
+  return `data:${mimeType};base64,${file}`;
 }
 
 export async function generateSocialImage(kind: 'og' | 'twitter') {
-  const logoSrc = await loadBase64Asset('fistic-logo.png');
-  const productSrc = await loadBase64Asset('clatite_cu_fistic.png');
-  const accentSrc = await loadBase64Asset('gogosi-cu-ciocolata-si-fructe.png');
+  const logoSrc = await loadBase64Asset('fistic-logo.webp');
+  const productSrc = await loadBase64Asset('clatite_cu_fistic.webp');
+  const accentSrc = await loadBase64Asset('gogosi-cu-ciocolata-si-fructe.webp');
 
   return new ImageResponse(
     (
