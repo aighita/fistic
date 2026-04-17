@@ -713,17 +713,17 @@ export default function Home() {
           />
 
           <div
-            className="overflow-hidden rounded-[40px] border p-6 sm:p-8 lg:p-10"
+            className="overflow-hidden rounded-[28px] border p-4 sm:rounded-[40px] sm:p-8 lg:p-10"
             style={{
               borderColor: 'rgba(61, 35, 20, 0.1)',
               background:
                 'linear-gradient(135deg, rgba(255,250,243,0.96) 0%, rgba(253,246,227,0.94) 52%, rgba(169,194,129,0.14) 100%)',
             }}
           >
-            <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+            <div className="grid gap-6 sm:gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
               <div className="max-w-3xl">
                 <span
-                  className="inline-flex rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em]"
+                  className="inline-flex rounded-full px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] sm:px-4 sm:py-2 sm:text-sm sm:tracking-[0.18em]"
                   style={{
                     backgroundColor: 'rgba(147, 197, 114, 0.14)',
                     color: colors.chocolate,
@@ -731,10 +731,10 @@ export default function Home() {
                 >
                   🍓 FISTIC – LIVE DESSERT EXPERIENCE
                 </span>
-                <h2 className="mt-5 text-4xl sm:text-5xl lg:text-6xl" style={{ fontFamily: displayFont }}>
+                <h2 className="mt-4 text-3xl sm:mt-5 sm:text-5xl lg:text-6xl" style={{ fontFamily: displayFont }}>
                   LISTĂ PACHETE EVENIMENTE
                 </h2>
-                <p className="mt-5 max-w-2xl text-lg leading-8" style={{ color: colors.chocolateSoft }}>
+                <p className="mt-4 max-w-2xl text-base leading-7 sm:mt-5 sm:text-lg sm:leading-8" style={{ color: colors.chocolateSoft }}>
                   Oferim servicii de desert live pentru evenimente, unde preparăm clătite pe loc,
                   cu ingrediente premium și un concept organizat pentru flux eficient și
                   experiență plăcută pentru invitați.
@@ -742,7 +742,7 @@ export default function Home() {
               </div>
 
               <div
-                className="rounded-[32px] border p-6 sm:p-7"
+                className="rounded-[24px] border p-4 sm:rounded-[32px] sm:p-7"
                 style={{
                   borderColor: 'rgba(224, 64, 102, 0.14)',
                   backgroundColor: 'rgba(255,255,255,0.66)',
@@ -754,20 +754,20 @@ export default function Home() {
                 >
                   Concept FISTIC
                 </p>
-                <p className="mt-4 text-xl leading-8" style={{ fontFamily: displayFont, color: colors.chocolate }}>
+                <p className="mt-3 text-lg leading-7 sm:mt-4 sm:text-xl sm:leading-8" style={{ fontFamily: displayFont, color: colors.chocolate }}>
                   FISTIC – nu vindem doar clătite, ci experiențe.
                 </p>
-                <div className="relative mt-7 w-fit">
+                <div className="relative mt-5 w-fit sm:mt-7">
                   <ShinyText
                     text="FISTIC"
                     speed={3.4}
                     color={colors.chocolate}
                     shineColor={colors.creamSoft}
                     spread={95}
-                    className="text-3xl font-extrabold tracking-[0.26em] sm:text-4xl"
+                    className="text-2xl font-extrabold tracking-[0.18em] sm:text-4xl sm:tracking-[0.26em]"
                   />
                   <span
-                    className="absolute -bottom-4 left-8 text-xl sm:text-2xl"
+                    className="absolute -bottom-3 left-5 text-lg sm:-bottom-4 sm:left-8 sm:text-2xl"
                     style={{
                       color: colors.raspberryDeep,
                       transform: 'rotate(-6deg)',
@@ -780,7 +780,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mt-12 grid gap-6 xl:grid-cols-[1fr_1fr]">
+            <div className="mt-8 grid gap-4 sm:mt-12 sm:gap-6 xl:grid-cols-[1fr_1fr]">
               {eventPackages.map((pkg, index) => (
                 <BorderGlow
                   key={pkg.badge}
@@ -794,11 +794,11 @@ export default function Home() {
                   colors={[colors.pistachioSoft, colors.raspberry, '#ffd4b8']}
                   fillOpacity={0}
                 >
-                  <div className="flex h-full flex-col p-7 sm:p-8">
-                    <div className="flex items-start justify-between gap-4">
+                  <div className="flex h-full flex-col p-4 sm:p-8">
+                    <div className="flex items-start justify-between gap-3 sm:gap-4">
                       <div>
                         <h3
-                          className="inline-flex whitespace-pre-line rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.16em]"
+                          className="inline-flex whitespace-pre-line rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] sm:px-4 sm:py-2 sm:text-sm sm:tracking-[0.16em]"
                           style={{
                             backgroundColor: pkg.accent,
                             color: colors.chocolate,
@@ -809,25 +809,25 @@ export default function Home() {
                         </h3>
                       </div>
                       <div
-                        className="min-w-[92px] rounded-[22px] px-4 py-3 text-center"
+                        className="min-w-[72px] rounded-[18px] px-3 py-2 text-center sm:min-w-[92px] sm:rounded-[22px] sm:px-4 sm:py-3"
                         style={{ backgroundColor: pkg.accent }}
                       >
-                        <p className="text-xs font-semibold uppercase tracking-[0.16em]">de la</p>
-                        <p className="mt-1 text-2xl" style={{ fontFamily: displayFont }}>
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] sm:text-xs sm:tracking-[0.16em]">de la</p>
+                        <p className="mt-1 text-lg sm:text-2xl" style={{ fontFamily: displayFont }}>
                           {pkg.pricing[0]?.split('–')[1]?.trim()}
                         </p>
                       </div>
                     </div>
 
-                    <p className="mt-4 text-base leading-7" style={{ color: colors.chocolateSoft }}>
+                    <p className="mt-3 text-sm leading-6 sm:mt-4 sm:text-base sm:leading-7" style={{ color: colors.chocolateSoft }}>
                       {pkg.description}
                     </p>
 
-                    <div className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+                    <div className="mt-5 grid gap-4 sm:mt-8 sm:gap-6 lg:grid-cols-[1.2fr_0.8fr]">
                       <div>
                         <p className="text-sm font-semibold uppercase tracking-[0.16em]">Include</p>
                         <ul
-                          className="mt-4 space-y-3 text-base leading-7"
+                          className="mt-3 space-y-2 text-sm leading-6 sm:mt-4 sm:space-y-3 sm:text-base sm:leading-7"
                           style={{ color: colors.chocolateSoft }}
                         >
                           {pkg.includes.map((item) => (
@@ -842,7 +842,7 @@ export default function Home() {
                       </div>
 
                       <div
-                        className="rounded-[24px] border p-5"
+                        className="rounded-[20px] border p-4 sm:rounded-[24px] sm:p-5"
                         style={{
                           borderColor: pkg.border,
                           background:
@@ -852,11 +852,11 @@ export default function Home() {
                         <p className="text-sm font-semibold uppercase tracking-[0.16em]">
                           Durată și preț
                         </p>
-                        <ul className="mt-4 flex flex-wrap gap-2.5">
+                        <ul className="mt-3 flex flex-wrap gap-2 sm:mt-4 sm:gap-2.5">
                           {pkg.pricing.map((item) => (
                             <li
                               key={item}
-                              className="rounded-full border px-4 py-2 text-sm font-medium"
+                              className="rounded-full border px-3 py-1.5 text-xs font-medium sm:px-4 sm:py-2 sm:text-sm"
                               style={{
                                 borderColor: pkg.border,
                                 backgroundColor: 'rgba(255,255,255,0.72)',
@@ -870,7 +870,7 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div className="mt-8 flex justify-end pt-2">
+                    <div className="mt-5 flex justify-end pt-1 sm:mt-8 sm:pt-2">
                       <StarBorder
                         as="a"
                         href={`https://wa.me/${phoneNumber.replace('+', '')}?text=${encodeURIComponent(pkg.ctaMessage)}`}
@@ -880,9 +880,9 @@ export default function Home() {
                         speed="4s"
                         thickness={6}
                         className="block w-full sm:w-auto"
-                        innerClassName="border-white/10 bg-[linear-gradient(180deg,rgba(28,24,21,0.98)_0%,rgba(12,10,9,1)_100%)] text-[#FDF6E3] shadow-[0_14px_34px_rgba(17,12,10,0.28)] transition-transform duration-300 hover:-translate-y-0.5"
+                        innerClassName="border-white/10 bg-[linear-gradient(180deg,rgba(28,24,21,0.98)_0%,rgba(12,10,9,1)_100%)] px-4 py-2.5 text-[#FDF6E3] shadow-[0_14px_34px_rgba(17,12,10,0.28)] transition-transform duration-300 hover:-translate-y-0.5 sm:px-[26px] sm:py-[16px]"
                       >
-                        <span className="inline-flex items-center gap-2" style={{ fontFamily: displayFont }}>
+                        <span className="inline-flex items-center gap-2 text-sm sm:text-base" style={{ fontFamily: displayFont }}>
                           {pkg.ctaLabel}
                           <ArrowRight className="h-4 w-4" />
                         </span>
@@ -893,9 +893,9 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="mt-8 grid gap-6 lg:grid-cols-[0.82fr_1.18fr]">
+            <div className="mt-6 grid gap-4 sm:mt-8 sm:gap-6 lg:grid-cols-[0.82fr_1.18fr]">
               <div
-                className="rounded-[32px] border p-7 sm:p-8"
+                className="rounded-[24px] border p-4 sm:rounded-[32px] sm:p-8"
                 style={{
                   borderColor: 'rgba(61, 35, 20, 0.1)',
                   background:
@@ -903,7 +903,7 @@ export default function Home() {
                 }}
               >
                 <p className="text-sm font-semibold uppercase tracking-[0.16em]">⚙️ OPȚIONALE</p>
-                <ul className="mt-5 space-y-3 text-base leading-7" style={{ color: colors.chocolateSoft }}>
+                <ul className="mt-4 space-y-2 text-sm leading-6 sm:mt-5 sm:space-y-3 sm:text-base sm:leading-7" style={{ color: colors.chocolateSoft }}>
                   {eventOptionalItems.map((item) => (
                     <li key={item} className="flex gap-3">
                       <span style={{ color: colors.pistachio }}>•</span>
@@ -914,18 +914,18 @@ export default function Home() {
               </div>
 
               <div
-                className="rounded-[32px] border p-7 sm:p-8"
+                className="rounded-[24px] border p-4 sm:rounded-[32px] sm:p-8"
                 style={{
                   borderColor: 'rgba(61, 35, 20, 0.1)',
                   background:
                     'linear-gradient(135deg, rgba(255,255,255,0.82) 0%, rgba(253,246,227,0.96) 46%, rgba(224,64,102,0.07) 100%)',
                 }}
               >
-                <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+                <div className="grid gap-5 sm:gap-8 lg:grid-cols-[1.05fr_0.95fr]">
                   <div>
                     <p className="text-sm font-semibold uppercase tracking-[0.16em]">📌 MENȚIUNI</p>
                     <ul
-                      className="mt-5 space-y-3 text-base leading-7"
+                      className="mt-4 space-y-2 text-sm leading-6 sm:mt-5 sm:space-y-3 sm:text-base sm:leading-7"
                       style={{ color: colors.chocolateSoft }}
                     >
                       {eventNotes.map((item) => (
@@ -938,32 +938,32 @@ export default function Home() {
                   </div>
 
                   <div
-                    className="rounded-[26px] border p-5 sm:p-6"
+                    className="rounded-[20px] border p-4 sm:rounded-[26px] sm:p-6"
                     style={{
                       borderColor: 'rgba(224, 64, 102, 0.14)',
                       backgroundColor: 'rgba(224, 64, 102, 0.06)',
                     }}
                   >
                     <p className="text-sm font-semibold uppercase tracking-[0.16em]">📞 Contact</p>
-                    <p className="mt-3 text-base leading-7" style={{ color: colors.chocolateSoft }}>
+                    <p className="mt-3 text-sm leading-6 sm:text-base sm:leading-7" style={{ color: colors.chocolateSoft }}>
                       Pentru disponibilitate și rezervări:
                     </p>
                     <p
-                      className="mt-5 text-xl leading-8"
+                      className="mt-4 text-lg leading-7 sm:mt-5 sm:text-xl sm:leading-8"
                       style={{ fontFamily: displayFont, color: colors.chocolate }}
                     >
                       Telefon / WhatsApp
                     </p>
-                    <p className="text-base leading-7" style={{ color: colors.chocolate }}>
+                    <p className="text-sm leading-6 sm:text-base sm:leading-7" style={{ color: colors.chocolate }}>
                       {phoneDisplay}
                     </p>
                     <p
-                      className="mt-4 text-xl leading-8"
+                      className="mt-3 text-lg leading-7 sm:mt-4 sm:text-xl sm:leading-8"
                       style={{ fontFamily: displayFont, color: colors.chocolate }}
                     >
                       Email
                     </p>
-                    <p className="break-all text-base leading-7" style={{ color: colors.chocolate }}>
+                    <p className="break-all text-sm leading-6 sm:text-base sm:leading-7" style={{ color: colors.chocolate }}>
                       {emailAddress}
                     </p>
                   </div>
