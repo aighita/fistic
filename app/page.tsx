@@ -24,6 +24,7 @@ import HeroTiltedCarousel from '@/components/HeroTiltedCarousel';
 import Masonry from '@/components/Masonry';
 import PillNav from '@/components/PillNav';
 import ShinyText from '@/components/ShinyText';
+import StarBorder from '@/components/StarBorder';
 import { siteConfig } from '@/lib/site';
 
 import clatiteCapsuni from '@/assets/clatite_cu_capsuni.webp';
@@ -165,6 +166,65 @@ const serviceCards = [
   },
 ];
 
+const eventPackages = [
+  {
+    badge: '🟢 PACHET CLASSIC',
+    title: '🟢 PACHET CLASSIC',
+    description:
+      'Recomandat pentru evenimente unde se dorește servire rapidă și volum mare.',
+    includes: [
+      'preparare live la 2 plite',
+      'clătite clasice',
+      'toppinguri de bază (crema de ciocolata, dulceață , banane,etc. )',
+      'servire directă invitați',
+    ],
+    pricing: [
+      '2 ore – 1500 lei',
+      '4 ore – 2000 lei',
+      '6 ore – 2600 lei',
+    ],
+    accent: 'rgba(147, 197, 114, 0.18)',
+    border: 'rgba(147, 197, 114, 0.42)',
+    ctaLabel: 'Rezervă pachetul',
+    ctaMessage: 'Salut! Vreau acest pachet: PACHET CLASSIC.',
+  },
+  {
+    badge: '🔴 PACHET FISTIC SIGNATURE (PREMIUM)',
+    title: '🔴 PACHET FISTIC\nSIGNATURE (PREMIUM)',
+    description:
+      'Recomandat pentru nunți și evenimente unde se dorește un desert spectaculos și interactiv.',
+    includes: [
+      'preparare live la 2 plite',
+      'meniu premium prestabilit',
+      'clătite premium + variante speciale (decoruri, combinații complexe)',
+      'fructe atent alese și toppinguri premium',
+      'experiență live pentru invitați',
+    ],
+    pricing: [
+      '2 ore – 1800 lei',
+      '4 ore – 2500 lei',
+      '6 ore – 3200 lei',
+    ],
+    accent: 'rgba(224, 64, 102, 0.10)',
+    border: 'rgba(224, 64, 102, 0.26)',
+    ctaLabel: 'Rezervă pachetul',
+    ctaMessage: 'Salut! Vreau acest pachet: PACHET FISTIC SIGNATURE (PREMIUM).',
+  },
+];
+
+const eventOptionalItems = [
+  'Oră suplimentară: 400 lei',
+  'Operator suplimentar: 500 lei',
+  'Setup extins / volum mare invitați: se discută în funcție de eveniment',
+];
+
+const eventNotes = [
+  'Serviciul este oferit în sistem live, fără limită fixă de porții',
+  'Numărul de clătite depinde de complexitatea alegerilor invitaților',
+  'Se garantează prestarea continuă pe durata pachetului ales',
+  'Pentru rezervare se percepe avans',
+];
+
 const fairMoments = [
   {
     eyebrow: 'Prezenta vizibila',
@@ -284,6 +344,7 @@ export default function Home() {
       <PillNav
         items={[
           { label: 'Meniu & Galerie', href: '#galerie' },
+          { label: 'Locatie', href: '#locatie' },
           { label: 'Servicii', href: '#servicii' },
           { label: 'Contact', href: '#contact' },
         ]}
@@ -531,7 +592,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="servicii" className="relative mx-auto max-w-7xl px-6 py-20 lg:px-10">
+        <section id="locatie" className="relative mx-auto max-w-7xl px-6 py-20 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr]">
             <BorderGlow
               className="border-white/0"
@@ -639,6 +700,277 @@ export default function Home() {
                 })}
               </div>
             </div>
+          </div>
+        </section>
+
+        <section id="servicii" className="relative mx-auto max-w-7xl px-6 py-20 lg:px-10">
+          <div
+            className="absolute inset-x-6 top-8 -z-10 h-[280px] rounded-[44px] blur-3xl lg:inset-x-10"
+            style={{
+              background:
+                'radial-gradient(circle at 18% 30%, rgba(147,197,114,0.24) 0%, transparent 34%), radial-gradient(circle at 78% 24%, rgba(224,64,102,0.20) 0%, transparent 30%), radial-gradient(circle at 50% 80%, rgba(255,212,184,0.36) 0%, transparent 38%)',
+            }}
+          />
+
+          <div
+            className="overflow-hidden rounded-[40px] border p-6 sm:p-8 lg:p-10"
+            style={{
+              borderColor: 'rgba(61, 35, 20, 0.1)',
+              background:
+                'linear-gradient(135deg, rgba(255,250,243,0.96) 0%, rgba(253,246,227,0.94) 52%, rgba(169,194,129,0.14) 100%)',
+            }}
+          >
+            <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+              <div className="max-w-3xl">
+                <span
+                  className="inline-flex rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em]"
+                  style={{
+                    backgroundColor: 'rgba(147, 197, 114, 0.14)',
+                    color: colors.chocolate,
+                  }}
+                >
+                  🍓 FISTIC – LIVE DESSERT EXPERIENCE
+                </span>
+                <h2 className="mt-5 text-4xl sm:text-5xl lg:text-6xl" style={{ fontFamily: displayFont }}>
+                  LISTĂ PACHETE EVENIMENTE
+                </h2>
+                <p className="mt-5 max-w-2xl text-lg leading-8" style={{ color: colors.chocolateSoft }}>
+                  Oferim servicii de desert live pentru evenimente, unde preparăm clătite pe loc,
+                  cu ingrediente premium și un concept organizat pentru flux eficient și
+                  experiență plăcută pentru invitați.
+                </p>
+              </div>
+
+              <div
+                className="rounded-[32px] border p-6 sm:p-7"
+                style={{
+                  borderColor: 'rgba(224, 64, 102, 0.14)',
+                  backgroundColor: 'rgba(255,255,255,0.66)',
+                }}
+              >
+                <p
+                  className="text-sm font-semibold uppercase tracking-[0.16em]"
+                  style={{ color: colors.raspberryDeep }}
+                >
+                  Concept FISTIC
+                </p>
+                <p className="mt-4 text-xl leading-8" style={{ fontFamily: displayFont, color: colors.chocolate }}>
+                  FISTIC – nu vindem doar clătite, ci experiențe.
+                </p>
+                <div className="relative mt-7 w-fit">
+                  <ShinyText
+                    text="FISTIC"
+                    speed={3.4}
+                    color={colors.chocolate}
+                    shineColor={colors.creamSoft}
+                    spread={95}
+                    className="text-3xl font-extrabold tracking-[0.26em] sm:text-4xl"
+                  />
+                  <span
+                    className="absolute -bottom-4 left-8 text-xl sm:text-2xl"
+                    style={{
+                      color: colors.raspberryDeep,
+                      transform: 'rotate(-6deg)',
+                      fontFamily: scriptFont,
+                    }}
+                  >
+                    experience
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 grid gap-6 xl:grid-cols-[1fr_1fr]">
+              {eventPackages.map((pkg, index) => (
+                <BorderGlow
+                  key={pkg.badge}
+                  className="h-full border-white/0"
+                  borderRadius={32}
+                  glowColor={index === 0 ? '92 42% 63%' : '342 72% 58%'}
+                  backgroundColor="rgba(255,255,255,0.72)"
+                  glowRadius={24}
+                  glowIntensity={0.42}
+                  edgeSensitivity={52}
+                  colors={[colors.pistachioSoft, colors.raspberry, '#ffd4b8']}
+                  fillOpacity={0}
+                >
+                  <div className="flex h-full flex-col p-7 sm:p-8">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <h3
+                          className="inline-flex whitespace-pre-line rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.16em]"
+                          style={{
+                            backgroundColor: pkg.accent,
+                            color: colors.chocolate,
+                            fontFamily: displayFont,
+                          }}
+                        >
+                          {pkg.title}
+                        </h3>
+                      </div>
+                      <div
+                        className="min-w-[92px] rounded-[22px] px-4 py-3 text-center"
+                        style={{ backgroundColor: pkg.accent }}
+                      >
+                        <p className="text-xs font-semibold uppercase tracking-[0.16em]">de la</p>
+                        <p className="mt-1 text-2xl" style={{ fontFamily: displayFont }}>
+                          {pkg.pricing[0]?.split('–')[1]?.trim()}
+                        </p>
+                      </div>
+                    </div>
+
+                    <p className="mt-4 text-base leading-7" style={{ color: colors.chocolateSoft }}>
+                      {pkg.description}
+                    </p>
+
+                    <div className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+                      <div>
+                        <p className="text-sm font-semibold uppercase tracking-[0.16em]">Include</p>
+                        <ul
+                          className="mt-4 space-y-3 text-base leading-7"
+                          style={{ color: colors.chocolateSoft }}
+                        >
+                          {pkg.includes.map((item) => (
+                            <li key={item} className="flex gap-3">
+                              <span style={{ color: index === 0 ? colors.pistachio : colors.raspberryDeep }}>
+                                •
+                              </span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div
+                        className="rounded-[24px] border p-5"
+                        style={{
+                          borderColor: pkg.border,
+                          background:
+                            'linear-gradient(180deg, rgba(255,255,255,0.68) 0%, rgba(253,246,227,0.92) 100%)',
+                        }}
+                      >
+                        <p className="text-sm font-semibold uppercase tracking-[0.16em]">
+                          Durată și preț
+                        </p>
+                        <ul className="mt-4 flex flex-wrap gap-2.5">
+                          {pkg.pricing.map((item) => (
+                            <li
+                              key={item}
+                              className="rounded-full border px-4 py-2 text-sm font-medium"
+                              style={{
+                                borderColor: pkg.border,
+                                backgroundColor: 'rgba(255,255,255,0.72)',
+                                color: colors.chocolate,
+                              }}
+                            >
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="mt-8 flex justify-end pt-2">
+                      <StarBorder
+                        as="a"
+                        href={`https://wa.me/${phoneNumber.replace('+', '')}?text=${encodeURIComponent(pkg.ctaMessage)}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        color={index === 0 ? '#b9e29b' : '#ff86ad'}
+                        speed="4s"
+                        thickness={6}
+                        className="block w-full sm:w-auto"
+                        innerClassName="border-white/10 bg-[linear-gradient(180deg,rgba(28,24,21,0.98)_0%,rgba(12,10,9,1)_100%)] text-[#FDF6E3] shadow-[0_14px_34px_rgba(17,12,10,0.28)] transition-transform duration-300 hover:-translate-y-0.5"
+                      >
+                        <span className="inline-flex items-center gap-2" style={{ fontFamily: displayFont }}>
+                          {pkg.ctaLabel}
+                          <ArrowRight className="h-4 w-4" />
+                        </span>
+                      </StarBorder>
+                    </div>
+                  </div>
+                </BorderGlow>
+              ))}
+            </div>
+
+            <div className="mt-8 grid gap-6 lg:grid-cols-[0.82fr_1.18fr]">
+              <div
+                className="rounded-[32px] border p-7 sm:p-8"
+                style={{
+                  borderColor: 'rgba(61, 35, 20, 0.1)',
+                  background:
+                    'linear-gradient(180deg, rgba(255,255,255,0.76) 0%, rgba(253,246,227,0.9) 100%)',
+                }}
+              >
+                <p className="text-sm font-semibold uppercase tracking-[0.16em]">⚙️ OPȚIONALE</p>
+                <ul className="mt-5 space-y-3 text-base leading-7" style={{ color: colors.chocolateSoft }}>
+                  {eventOptionalItems.map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <span style={{ color: colors.pistachio }}>•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div
+                className="rounded-[32px] border p-7 sm:p-8"
+                style={{
+                  borderColor: 'rgba(61, 35, 20, 0.1)',
+                  background:
+                    'linear-gradient(135deg, rgba(255,255,255,0.82) 0%, rgba(253,246,227,0.96) 46%, rgba(224,64,102,0.07) 100%)',
+                }}
+              >
+                <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.16em]">📌 MENȚIUNI</p>
+                    <ul
+                      className="mt-5 space-y-3 text-base leading-7"
+                      style={{ color: colors.chocolateSoft }}
+                    >
+                      {eventNotes.map((item) => (
+                        <li key={item} className="flex gap-3">
+                          <span style={{ color: colors.raspberryDeep }}>•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div
+                    className="rounded-[26px] border p-5 sm:p-6"
+                    style={{
+                      borderColor: 'rgba(224, 64, 102, 0.14)',
+                      backgroundColor: 'rgba(224, 64, 102, 0.06)',
+                    }}
+                  >
+                    <p className="text-sm font-semibold uppercase tracking-[0.16em]">📞 Contact</p>
+                    <p className="mt-3 text-base leading-7" style={{ color: colors.chocolateSoft }}>
+                      Pentru disponibilitate și rezervări:
+                    </p>
+                    <p
+                      className="mt-5 text-xl leading-8"
+                      style={{ fontFamily: displayFont, color: colors.chocolate }}
+                    >
+                      Telefon / WhatsApp
+                    </p>
+                    <p className="text-base leading-7" style={{ color: colors.chocolate }}>
+                      {phoneDisplay}
+                    </p>
+                    <p
+                      className="mt-4 text-xl leading-8"
+                      style={{ fontFamily: displayFont, color: colors.chocolate }}
+                    >
+                      Email
+                    </p>
+                    <p className="break-all text-base leading-7" style={{ color: colors.chocolate }}>
+                      {emailAddress}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </section>
 
