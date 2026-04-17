@@ -4,6 +4,14 @@ import LegalPageShell from '@/components/LegalPageShell';
 
 export const metadata: Metadata = {
   title: 'Termeni si Conditii | FISTIC',
+  description: 'Termeni si conditii pentru utilizarea site-ului FISTIC Craiova.',
+  alternates: {
+    canonical: '/termeni-si-conditii',
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function TermsPage() {

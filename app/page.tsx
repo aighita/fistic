@@ -24,6 +24,7 @@ import HeroTiltedCarousel from '@/components/HeroTiltedCarousel';
 import Masonry from '@/components/Masonry';
 import PillNav from '@/components/PillNav';
 import ShinyText from '@/components/ShinyText';
+import { siteConfig } from '@/lib/site';
 
 import clatiteCapsuni from '@/assets/clatite_cu_capsuni.webp';
 import clatiteFistic from '@/assets/clatite_cu_fistic.webp';
@@ -46,13 +47,13 @@ const colors = {
 
 const displayFont = "'Avenir Next', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif";
 const scriptFont = "'Snell Roundhand', 'Brush Script MT', 'Segoe Script', cursive";
-const phoneNumber = '+40784370666';
-const phoneDisplay = '+40 784 370 666';
+const phoneNumber = siteConfig.phone;
+const phoneDisplay = siteConfig.phoneDisplay;
 const whatsappInfoMessage =
   'Salut! Vreau sa aflu mai multe despre FISTIC.';
 const whatsappBookingMessage =
   'Salut! Vreau sa rezerv rulota FISTIC.';
-const emailAddress = 'fisticsupreme@gmail.com';
+const emailAddress = siteConfig.email;
 const tiktokHandle = 'adi.mitrache';
 const tiktokUrl = 'https://www.tiktok.com/@adi.mitrache';
 
@@ -210,14 +211,76 @@ const socialLinks = [
 ];
 
 export const metadata: Metadata = {
-  title: 'FISTIC | Clatite si mini-gogosi in Craiova',
-  description:
-    'Landing page de prezentare pentru rulota FISTIC: clatite fine, mini-gogosi spectaculoase si servicii pentru targuri, evenimente private si colaborari corporate.',
+  title: 'Clatite si mini-gogosi in Craiova',
+  description: siteConfig.description,
+  keywords: [
+    'clatite Craiova',
+    'mini-gogosi Craiova',
+    'deserturi evenimente Craiova',
+    'rulota FISTIC',
+    'food truck deserturi',
+  ],
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: siteConfig.title,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    images: ['/opengraph-image'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: ['/twitter-image'],
+  },
 };
 
 export default function Home() {
+  const localBusinessSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FoodEstablishment',
+    name: siteConfig.legalName,
+    alternateName: siteConfig.name,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    image: [`${siteConfig.url}/opengraph-image`],
+    logo: `${siteConfig.url}/opengraph-image`,
+    telephone: siteConfig.phone,
+    email: siteConfig.email,
+    areaServed: siteConfig.areaServed,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: siteConfig.addressLocality,
+      addressRegion: siteConfig.addressRegion,
+      addressCountry: siteConfig.addressCountry,
+    },
+    priceRange: '$$',
+    servesCuisine: ['Dessert', 'Clatite', 'Mini-gogosi'],
+    sameAs: [...siteConfig.socialLinks],
+  };
+
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: siteConfig.name,
+    url: siteConfig.url,
+    inLanguage: siteConfig.language,
+    description: siteConfig.description,
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+
       <PillNav
         items={[
           { label: 'Meniu & Galerie', href: '#galerie' },

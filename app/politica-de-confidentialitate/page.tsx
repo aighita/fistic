@@ -4,6 +4,14 @@ import LegalPageShell from '@/components/LegalPageShell';
 
 export const metadata: Metadata = {
   title: 'Politica de Confidentialitate | FISTIC',
+  description: 'Politica de confidentialitate pentru site-ul FISTIC Craiova.',
+  alternates: {
+    canonical: '/politica-de-confidentialitate',
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function PrivacyPage() {

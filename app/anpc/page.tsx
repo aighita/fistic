@@ -4,6 +4,14 @@ import LegalPageShell from '@/components/LegalPageShell';
 
 export const metadata: Metadata = {
   title: 'Informatii ANPC | FISTIC',
+  description: 'Informatii ANPC si asistenta pentru consumatori pentru FISTIC Craiova.',
+  alternates: {
+    canonical: '/anpc',
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function AnpcPage() {
