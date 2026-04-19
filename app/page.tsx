@@ -252,6 +252,41 @@ const fairMoments = [
   },
 ];
 
+const eventVideos = [
+  {
+    mp4Src: '/1.mp4',
+    webmSrc: '/1.webm',
+    posterSrc: '/1-poster.jpg',
+    title: 'FISTIC la alt eveniment',
+    text: 'Un setup care atrage rapid oamenii si deschide pofta de desert live.',
+    ctaLabel: 'Vezi pachetele pentru evenimentul tau',
+  },
+  {
+    mp4Src: '/2.mp4',
+    webmSrc: '/2.webm',
+    posterSrc: '/2-poster.jpg',
+    title: 'Atmosfera care aduna lumea',
+    text: 'Rulota functioneaza bine in flux de public, cu servire clara si produs fotogenic.',
+    ctaLabel: 'Alege un pachet pentru eveniment',
+  },
+  {
+    mp4Src: '/3.mp4',
+    webmSrc: '/3.webm',
+    posterSrc: '/3-poster.jpg',
+    title: 'Prezenta memorabila in teren',
+    text: 'Brandul, culorile si deserturile creeaza un punct de atractie usor de remarcat.',
+    ctaLabel: 'Descopera pachetele disponibile',
+  },
+  {
+    mp4Src: '/4.mp4',
+    webmSrc: '/4.webm',
+    posterSrc: '/4-poster.jpg',
+    title: 'Mai mult decat un desert',
+    text: 'FISTIC aduce experienta live potrivita pentru targuri, privat si corporate.',
+    ctaLabel: 'Mergi la sectiunea pachete',
+  },
+];
+
 const socialLinks = [
   {
     label: 'Instagram',
@@ -344,6 +379,7 @@ export default function Home() {
       <PillNav
         items={[
           { label: 'Meniu & Galerie', href: '#galerie' },
+          { label: 'Video', href: '#evenimente' },
           { label: 'Locatie', href: '#locatie' },
           { label: 'Servicii', href: '#servicii' },
           { label: 'Contact', href: '#contact' },
@@ -584,6 +620,83 @@ export default function Home() {
                           {tag}
                         </span>
                       ))}
+                    </div>
+                  </div>
+                </article>
+              </BorderGlow>
+            ))}
+          </div>
+        </section>
+
+        <section id="evenimente" className="relative mx-auto max-w-7xl px-6 py-20 lg:px-10">
+          <div className="flex max-w-3xl flex-col gap-4">
+            <span
+              className="inline-flex w-fit rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em]"
+              style={{
+                backgroundColor: 'rgba(147, 197, 114, 0.16)',
+                color: colors.chocolate,
+              }}
+            >
+              Alte evenimente
+            </span>
+            <h2 className="text-4xl sm:text-5xl" style={{ fontFamily: displayFont }}>
+              Cum arata FISTIC si in alte locuri unde am fost.
+            </h2>
+            <p className="max-w-2xl text-lg leading-8" style={{ color: colors.chocolateSoft }}>
+              Cateva cadre video din alte evenimente, ca sa vezi atmosfera, prezenta rulotei si
+              felul in care se misca serviciul live.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {eventVideos.map((video, index) => (
+              <BorderGlow
+                key={video.mp4Src}
+                className="h-full border-white/0"
+                borderRadius={32}
+                glowColor={index % 2 === 0 ? '92 42% 63%' : '342 72% 58%'}
+                backgroundColor={colors.creamSoft}
+                glowRadius={26}
+                glowIntensity={0.62}
+                colors={[colors.pistachioSoft, colors.raspberry, '#ffd4b8']}
+                fillOpacity={0.24}
+              >
+                <article className="flex h-full flex-col p-4 sm:p-5">
+                  <div className="relative overflow-hidden rounded-[28px] border border-[rgba(61,35,20,0.08)] bg-[#fffaf3]">
+                    <video
+                      className="h-full max-h-[520px] w-full object-cover"
+                      controls
+                      playsInline
+                      preload="metadata"
+                      poster={video.posterSrc}
+                    >
+                      <source src={video.webmSrc} type="video/webm" />
+                      <source src={video.mp4Src} type="video/mp4" />
+                    </video>
+                  </div>
+
+                  <div className="flex flex-1 flex-col px-1 pb-1 pt-5">
+                    <div className="inline-flex w-fit rounded-full bg-[rgba(255,255,255,0.72)] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#3D2314]">
+                      Eveniment 0{index + 1}
+                    </div>
+                    <h3 className="mt-4 text-2xl" style={{ fontFamily: displayFont }}>
+                      {video.title}
+                    </h3>
+                    <p className="mt-3 text-base leading-7" style={{ color: colors.chocolateSoft }}>
+                      {video.text}
+                    </p>
+
+                    <div className="mt-6">
+                      <a
+                        href="#servicii"
+                        className="inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5 sm:text-base"
+                        style={{
+                          background: `linear-gradient(135deg, ${colors.raspberry} 0%, ${colors.raspberryDeep} 100%)`,
+                        }}
+                      >
+                        {video.ctaLabel}
+                        <ArrowRight className="h-4 w-4" />
+                      </a>
                     </div>
                   </div>
                 </article>
