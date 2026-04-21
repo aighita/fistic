@@ -359,6 +359,16 @@ export default function Home() {
           { label: 'Servicii', href: '#servicii' },
           { label: 'Contact', href: '#contact' },
         ]}
+        scrollBrand={{
+          triggerId: 'hero-brand-lockup',
+          href: '#hero',
+          primaryText: 'FISTIC',
+          secondaryText: 'fistic',
+          primaryColor: colors.creamSoft,
+          primaryShineColor: '#ffffff',
+          secondaryColor: colors.pistachio,
+          secondaryFontFamily: scriptFont,
+        }}
         baseColor={colors.chocolate}
         pillColor={colors.creamSoft}
         pillTextColor={colors.chocolate}
@@ -415,9 +425,12 @@ export default function Home() {
           ))}
         </div>
 
-        <section className="relative mx-auto grid min-h-screen max-w-7xl gap-12 px-6 pb-16 pt-24 sm:gap-16 sm:pb-20 sm:pt-28 lg:grid-cols-[1.05fr_0.95fr] lg:px-10 lg:pt-32">
+        <section
+          id="hero-section"
+          className="relative mx-auto grid min-h-screen max-w-7xl gap-12 px-6 pb-16 pt-24 sm:gap-16 sm:pb-20 sm:pt-28 lg:grid-cols-[1.05fr_0.95fr] lg:px-10 lg:pt-32"
+        >
           <div className="flex flex-col items-center justify-center text-center lg:items-start lg:text-left">
-            <div className="relative mb-8 w-fit">
+            <div id="hero-brand-lockup" className="relative mb-8 w-fit">
               <ShinyText
                 text="FISTIC"
                 speed={3.2}
