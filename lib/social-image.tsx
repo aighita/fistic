@@ -88,7 +88,7 @@ export async function generateSocialImage(kind: 'og' | 'twitter') {
                   textTransform: 'uppercase',
                 }}
               >
-                Craiova
+                Desert live
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
@@ -121,7 +121,7 @@ export async function generateSocialImage(kind: 'og' | 'twitter') {
                       lineHeight: 1,
                     }}
                   >
-                    clatite & mini-gogosi
+                    clătite & mini-gogoși
                   </div>
                 </div>
               </div>
@@ -143,7 +143,7 @@ export async function generateSocialImage(kind: 'og' | 'twitter') {
                     maxWidth: 560,
                   }}
                 >
-                  Zambete glazurate si clatite fermecate.
+                  Zâmbete glazurate și clătite fermecate.
                 </div>
                 <div
                   style={{
@@ -154,7 +154,7 @@ export async function generateSocialImage(kind: 'og' | 'twitter') {
                     maxWidth: 560,
                   }}
                 >
-                  Rulota dulce pentru Targul de Paste Craiova, evenimente private si colaborari corporate.
+                  Rulota dulce pentru târguri, evenimente private și colaborări corporate.
                 </div>
               </div>
             </div>
@@ -166,7 +166,7 @@ export async function generateSocialImage(kind: 'og' | 'twitter') {
                 flexWrap: 'wrap',
               }}
             >
-              {['3 aprilie - 3 mai', 'Targul de Paste Craiova', 'Rezervari & colaborari'].map(
+              {['3 aprilie - 3 mai', 'Evenimente & târguri', 'Rezervări & colaborări'].map(
                 (label) => (
                   <div
                     key={label}

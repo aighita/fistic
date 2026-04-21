@@ -3,14 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowRight,
-  BriefcaseBusiness,
-  Clock3,
   Mail,
-  MapPin,
-  PartyPopper,
   Phone,
-  Sparkles,
-  Store,
 } from 'lucide-react';
 
 import {
@@ -51,9 +45,9 @@ const scriptFont = "'Snell Roundhand', 'Brush Script MT', 'Segoe Script', cursiv
 const phoneNumber = siteConfig.phone;
 const phoneDisplay = siteConfig.phoneDisplay;
 const whatsappInfoMessage =
-  'Salut! Vreau sa aflu mai multe despre FISTIC.';
+  'Salut! Vreau să aflu mai multe despre FISTIC.';
 const whatsappBookingMessage =
-  'Salut! Vreau sa rezerv rulota FISTIC.';
+  'Salut! Vreau să rezerv rulota FISTIC.';
 const emailAddress = siteConfig.email;
 const tiktokHandle = 'adi.mitrache';
 const tiktokUrl = 'https://www.tiktok.com/@adi.mitrache';
@@ -61,38 +55,38 @@ const tiktokUrl = 'https://www.tiktok.com/@adi.mitrache';
 const heroCarouselItems = [
   {
     src: clatiteFistic.src,
-    alt: 'Clatita signature cu fistic',
-    title: 'Clatita Signature cu Fistic',
-    badge: 'Crema de brand',
+    alt: 'Clătită signature cu fistic',
+    title: 'Clătită Signature cu Fistic',
+    badge: 'Cremă de brand',
   },
   {
     src: clatiteOreo.src,
-    alt: 'Clatita cu Oreo si ciocolata alba',
-    title: 'Clatita Oreo & Ciocolata Alba',
+    alt: 'Clătită cu Oreo și ciocolată albă',
+    title: 'Clătită Oreo & Ciocolată Albă',
     badge: 'Texturi contrastante',
   },
   {
     src: clatiteCapsuni.src,
-    alt: 'Clatita cu capsuni',
-    title: 'Clatita cu Capsuni',
+    alt: 'Clătită cu căpșuni',
+    title: 'Clătită cu Căpșuni',
     badge: 'Fresh & fotogenic',
   },
   {
     src: gogosiCiocolataFructe.src,
-    alt: 'Mini-gogosi cu ciocolata si fructe',
-    title: 'Mini-Gogosi cu Fructe',
-    badge: 'Favorita de targ',
+    alt: 'Mini-gogoși cu ciocolată și fructe',
+    title: 'Mini-Gogoși cu Fructe',
+    badge: 'Favorită de târg',
   },
   {
     src: gogosiFistic.src,
-    alt: 'Mini-gogosi cu fistic',
-    title: 'Mini-Gogosi cu Fistic',
+    alt: 'Mini-gogoși cu fistic',
+    title: 'Mini-Gogoși cu Fistic',
     badge: 'Accent verde FISTIC',
   },
   {
     src: gogosiBomboane.src,
-    alt: 'Mini-gogosi cu bombonele',
-    title: 'Mini-Gogosi cu Bomboane',
+    alt: 'Mini-gogoși cu bombonele',
+    title: 'Mini-Gogoși cu Bomboane',
     badge: 'Pentru momente festive',
   },
 ];
@@ -101,68 +95,50 @@ const menuItems = [
   {
     id: 'clatita-fistic',
     img: clatiteFistic,
-    title: 'Clatita Signature cu Fistic',
-    subtitle: 'Cremoasa, verde si memorabila din prima privire.',
+    title: 'Clătită Signature cu Fistic',
+    subtitle: 'Cremoasă, verde și memorabilă din prima privire.',
     height: 720,
     url: '#contact',
   },
   {
     id: 'oreo-alba',
     img: clatiteOreo,
-    title: 'Clatita Oreo & Ciocolata Alba',
-    subtitle: 'Texturi contrastante si un finish generos.',
+    title: 'Clătită Oreo & Ciocolată Albă',
+    subtitle: 'Texturi contrastante și un finish generos.',
     height: 640,
     url: '#contact',
   },
   {
     id: 'capsuni',
     img: clatiteCapsuni,
-    title: 'Clatita cu Capsuni',
-    subtitle: 'Fructata, proaspata si perfecta pentru pofta de weekend.',
+    title: 'Clătită cu Căpșuni',
+    subtitle: 'Fructată, proaspătă și perfectă pentru pofta de weekend.',
     height: 560,
     url: '#contact',
   },
   {
     id: 'fructe-padure',
     img: gogosiCiocolataFructe,
-    title: 'Mini-Gogosi cu Fructe',
-    subtitle: 'Glazuri bogate si topping-uri care atrag instant.',
+    title: 'Mini-Gogoși cu Fructe',
+    subtitle: 'Glazuri bogate și topping-uri care atrag instant.',
     height: 700,
     url: '#contact',
   },
   {
     id: 'gogosi-fistic',
     img: gogosiFistic,
-    title: 'Mini-Gogosi cu Fistic',
-    subtitle: 'Crocante la exterior, moi in interior, cu accent de brand.',
+    title: 'Mini-Gogoși cu Fistic',
+    subtitle: 'Crocante la exterior, moi în interior, cu accent de brand.',
     height: 620,
     url: '#contact',
   },
   {
     id: 'gogosi-bomboane',
     img: gogosiBomboane,
-    title: 'Mini-Gogosi cu Bomboane',
-    subtitle: 'Jucause, colorate si facute pentru momente festive.',
+    title: 'Mini-Gogoși cu Bomboane',
+    subtitle: 'Jucăușe, colorate și făcute pentru momente festive.',
     height: 540,
     url: '#contact',
-  },
-];
-
-const serviceCards = [
-  {
-    icon: Store,
-    title: 'Festivaluri & targuri',
-    text: 'Prezenta dulce la Targul de Craciun, Targul de Paste si evenimente street food din Craiova.',
-  },
-  {
-    icon: PartyPopper,
-    title: 'Evenimente private',
-    text: 'Zile de nastere, botezuri, nunti atipice sau petreceri unde rulota trebuie sa fie vedeta serii.',
-  },
-  {
-    icon: BriefcaseBusiness,
-    title: 'Corporate & HoReCa',
-    text: 'Activari de brand, weekenduri tematice, colaborari cu restaurante si evenimente de echipa.',
   },
 ];
 
@@ -175,7 +151,7 @@ const eventPackages = [
     includes: [
       'preparare live la 2 plite',
       'clătite clasice',
-      'toppinguri de bază (crema de ciocolata, dulceață , banane,etc. )',
+      'toppinguri de bază (cremă de ciocolată, dulceață, banane etc.)',
       'servire directă invitați',
     ],
     pricing: [
@@ -227,27 +203,27 @@ const eventNotes = [
 
 const fairMoments = [
   {
-    eyebrow: 'Prezenta vizibila',
+    eyebrow: 'Prezență vizibilă',
     title: 'Stand care atrage instant',
-    text: 'Lumina, mirosul de desert proaspat si plating-ul clar fac rulota usor de reperat si usor de tinut minte.',
-    highlight: 'Bun pentru zone cu trafic mare si flux continuu de public.',
-    tags: ['targuri', 'festivaluri', 'piatete'],
+    text: 'Lumina, mirosul de desert proaspăt și plating-ul clar fac rulota ușor de reperat și ușor de ținut minte.',
+    highlight: 'Bun pentru zone cu trafic mare și flux continuu de public.',
+    tags: ['târguri', 'festivaluri', 'piețe'],
     image: gogosiCiocolataFructe,
   },
   {
-    eyebrow: 'Operare fluida',
-    title: 'Servire rapida, fara haos vizual',
-    text: 'Formatul FISTIC functioneaza bine in evenimente dinamice: comanda usor de inteles, produs fotogenic si livrare coerenta.',
-    highlight: 'Se potriveste atat pentru seri aglomerate, cat si pentru intervale corporate.',
+    eyebrow: 'Operare fluidă',
+    title: 'Servire rapidă, fără haos vizual',
+    text: 'Formatul FISTIC funcționează bine în evenimente dinamice: comandă ușor de înțeles, produs fotogenic și livrare coerentă.',
+    highlight: 'Se potrivește atât pentru seri aglomerate, cât și pentru intervale corporate.',
     tags: ['private', 'corporate', 'street food'],
     image: clatiteCapsuni,
   },
   {
     eyebrow: 'Memorabilitate',
     title: 'Brand dulce, nu doar produs bun',
-    text: 'Oamenii nu retin doar desertul, ci si oprirea: cromatica, atmosfera si felul in care arata tot setup-ul.',
-    highlight: 'Genul de prezenta care merge bine si in poze, si in recomandari.',
-    tags: ['instagram', 'recomandari', 'revenire'],
+    text: 'Oamenii nu rețin doar desertul, ci și oprirea: cromatica, atmosfera și felul în care arată tot setup-ul.',
+    highlight: 'Genul de prezență care merge bine și în poze, și în recomandări.',
+    tags: ['instagram', 'recomandări', 'revenire'],
     image: gogosiFistic,
   },
 ];
@@ -258,32 +234,32 @@ const eventVideos = [
     webmSrc: '/1.webm',
     posterSrc: '/1-poster.jpg',
     title: 'FISTIC la alt eveniment',
-    text: 'Un setup care atrage rapid oamenii si deschide pofta de desert live.',
-    ctaLabel: 'Vezi pachetele pentru evenimentul tau',
+    text: 'Un setup care atrage rapid oamenii și deschide pofta de desert live.',
+    ctaLabel: 'Vezi pachetele pentru evenimentul tău',
   },
   {
     mp4Src: '/2.mp4',
     webmSrc: '/2.webm',
     posterSrc: '/2-poster.jpg',
-    title: 'Atmosfera care aduna lumea',
-    text: 'Rulota functioneaza bine in flux de public, cu servire clara si produs fotogenic.',
+    title: 'Atmosfera care adună lumea',
+    text: 'Rulota funcționează bine în flux de public, cu servire clară și produs fotogenic.',
     ctaLabel: 'Alege un pachet pentru eveniment',
   },
   {
     mp4Src: '/3.mp4',
     webmSrc: '/3.webm',
     posterSrc: '/3-poster.jpg',
-    title: 'Prezenta memorabila in teren',
-    text: 'Brandul, culorile si deserturile creeaza un punct de atractie usor de remarcat.',
-    ctaLabel: 'Descopera pachetele disponibile',
+    title: 'Prezență memorabilă în teren',
+    text: 'Brandul, culorile și deserturile creează un punct de atracție ușor de remarcat.',
+    ctaLabel: 'Descoperă pachetele disponibile',
   },
   {
     mp4Src: '/4.mp4',
     webmSrc: '/4.webm',
     posterSrc: '/4-poster.jpg',
-    title: 'Mai mult decat un desert',
-    text: 'FISTIC aduce experienta live potrivita pentru targuri, privat si corporate.',
-    ctaLabel: 'Mergi la sectiunea pachete',
+    title: 'Mai mult decât un desert',
+    text: 'FISTIC aduce experiența live potrivită pentru târguri, privat și corporate.',
+    ctaLabel: 'Mergi la secțiunea pachete',
   },
 ];
 
@@ -306,12 +282,12 @@ const socialLinks = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Clatite si mini-gogosi in Craiova',
+  title: 'Clătite și mini-gogoși FISTIC',
   description: siteConfig.description,
   keywords: [
-    'clatite Craiova',
-    'mini-gogosi Craiova',
-    'deserturi evenimente Craiova',
+    'clătite FISTIC',
+    'mini-gogoși FISTIC',
+    'deserturi pentru evenimente',
     'rulota FISTIC',
     'food truck deserturi',
   ],
@@ -380,10 +356,19 @@ export default function Home() {
         items={[
           { label: 'Meniu & Galerie', href: '#galerie' },
           { label: 'Video', href: '#evenimente' },
-          { label: 'Locatie', href: '#locatie' },
           { label: 'Servicii', href: '#servicii' },
           { label: 'Contact', href: '#contact' },
         ]}
+        scrollBrand={{
+          triggerId: 'hero-brand-lockup',
+          href: '#hero',
+          primaryText: 'FISTIC',
+          secondaryText: 'fistic',
+          primaryColor: colors.creamSoft,
+          primaryShineColor: '#ffffff',
+          secondaryColor: colors.pistachio,
+          secondaryFontFamily: scriptFont,
+        }}
         baseColor={colors.chocolate}
         pillColor={colors.creamSoft}
         pillTextColor={colors.chocolate}
@@ -440,30 +425,22 @@ export default function Home() {
           ))}
         </div>
 
-        <section className="relative mx-auto grid min-h-screen max-w-7xl gap-16 px-6 pb-20 pt-32 lg:grid-cols-[1.05fr_0.95fr] lg:px-10">
-          <div className="flex flex-col justify-center">
-            <div
-              className="mb-6 inline-flex w-fit items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.2em]"
-              style={{
-                backgroundColor: 'rgba(147, 197, 114, 0.14)',
-                color: colors.chocolate,
-              }}
-            >
-              <MapPin className="h-4 w-4" />
-              Craiova
-            </div>
-
-            <div className="relative mb-10 w-fit">
+        <section
+          id="hero-section"
+          className="relative mx-auto grid min-h-screen max-w-7xl gap-12 px-6 pb-16 pt-24 sm:gap-16 sm:pb-20 sm:pt-28 lg:grid-cols-[1.05fr_0.95fr] lg:px-10 lg:pt-32"
+        >
+          <div className="flex flex-col items-center justify-center text-center lg:items-start lg:text-left">
+            <div id="hero-brand-lockup" className="relative mb-8 w-fit">
               <ShinyText
                 text="FISTIC"
                 speed={3.2}
                 color={colors.chocolate}
                 shineColor={colors.creamSoft}
                 spread={100}
-                className="text-5xl font-extrabold tracking-[0.3em] sm:text-6xl"
+                className="text-4xl font-extrabold tracking-[0.22em] sm:text-5xl lg:text-6xl"
               />
               <span
-                className="absolute -bottom-6 left-10 text-5xl sm:text-6xl"
+                className="absolute -bottom-5 left-7 text-4xl sm:-bottom-6 sm:left-10 sm:text-5xl lg:text-6xl"
                 style={{ color: colors.pistachio, transform: 'rotate(-7deg)', fontFamily: scriptFont }}
               >
                 fistic
@@ -471,19 +448,21 @@ export default function Home() {
             </div>
 
             <h1
-              className="max-w-2xl text-5xl leading-[0.96] sm:text-6xl lg:text-7xl"
+              className="max-w-2xl text-4xl leading-[0.98] sm:text-5xl lg:text-7xl"
               style={{ fontFamily: displayFont }}
             >
-              Zambete glazurate &amp; clatite fermecate.
+              Zâmbete glazurate &amp; clătite fermecate.
             </h1>
 
-            <p className="mt-7 max-w-2xl text-lg leading-8 sm:text-xl" style={{ color: colors.chocolateSoft }}>
-              Rulota FISTIC este pauza ta de dulce la Targurile de Craciun si Paste din
-              Craiova. Gogosi calde, clatite fine si o atmosfera de poveste, chiar la tine in
-              oras.
+            <p
+              className="mt-6 max-w-xl text-base leading-7 sm:text-lg sm:leading-8 lg:max-w-2xl lg:text-xl"
+              style={{ color: colors.chocolateSoft }}
+            >
+              Rulota FISTIC aduce pauza perfectă de dulce la târguri, evenimente private și activări
+              corporate. Gogoși calde, clătite fine și o atmosferă de poveste, oriunde apare.
             </p>
 
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-9 flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
               <a
                 href="#galerie"
                 className="inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-base font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5"
@@ -491,7 +470,7 @@ export default function Home() {
                   background: `linear-gradient(135deg, ${colors.raspberry} 0%, ${colors.raspberryDeep} 100%)`,
                 }}
               >
-                Vezi bunatatile
+                Vezi bunătățile
                 <ArrowRight className="h-5 w-5" />
               </a>
               <a
@@ -502,19 +481,19 @@ export default function Home() {
                   backgroundColor: 'rgba(253, 246, 227, 0.84)',
                 }}
               >
-                Rezerva rulota pentru eveniment
+                Rezervă rulota pentru eveniment
               </a>
             </div>
 
             <div
-              className="mt-12 w-fit rounded-[28px] border px-5 py-4 text-sm leading-7 backdrop-blur-sm sm:text-base"
+              className="mt-10 w-full max-w-xl rounded-[28px] border px-5 py-4 text-center text-sm leading-7 backdrop-blur-sm sm:text-base lg:w-fit lg:max-w-none lg:text-left"
               style={{
                 borderColor: 'rgba(61, 35, 20, 0.12)',
                 backgroundColor: 'rgba(253, 246, 227, 0.72)',
               }}
             >
-              <span className="font-semibold">3 aprilie - 3 mai</span> la Targul de Paste Craiova,
-              cu posibilitate de activari private si corporate in perioada evenimentului.
+              <span className="font-semibold">3 aprilie - 3 mai</span>, cu posibilitate de activări
+              private și corporate în perioada evenimentului.
             </div>
           </div>
 
@@ -524,7 +503,7 @@ export default function Home() {
         </section>
 
         <section id="galerie" className="relative mx-auto max-w-7xl px-6 py-20 lg:px-10">
-          <div className="flex max-w-3xl flex-col gap-4">
+          <div className="flex max-w-3xl flex-col items-center gap-4 text-center sm:items-start sm:text-left">
             <span
               className="inline-flex w-fit rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em]"
               style={{
@@ -534,8 +513,8 @@ export default function Home() {
             >
               Meniu vizual & galerie
             </span>
-            <h2 className="text-4xl sm:text-5xl" style={{ fontFamily: displayFont }}>
-              Ce pregatim bun?
+            <h2 className="text-3xl sm:text-5xl" style={{ fontFamily: displayFont }}>
+              Ce pregătim bun?
             </h2>
           </div>
 
@@ -629,7 +608,7 @@ export default function Home() {
         </section>
 
         <section id="evenimente" className="relative mx-auto max-w-7xl px-6 py-20 lg:px-10">
-          <div className="flex max-w-3xl flex-col gap-4">
+          <div className="flex max-w-3xl flex-col items-center gap-4 text-center sm:items-start sm:text-left">
             <span
               className="inline-flex w-fit rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em]"
               style={{
@@ -639,12 +618,12 @@ export default function Home() {
             >
               Alte evenimente
             </span>
-            <h2 className="text-4xl sm:text-5xl" style={{ fontFamily: displayFont }}>
-              Cum arata FISTIC si in alte locuri unde am fost.
+            <h2 className="text-3xl sm:text-5xl" style={{ fontFamily: displayFont }}>
+              Cum arată FISTIC și în alte locuri unde am fost.
             </h2>
             <p className="max-w-2xl text-lg leading-8" style={{ color: colors.chocolateSoft }}>
-              Cateva cadre video din alte evenimente, ca sa vezi atmosfera, prezenta rulotei si
-              felul in care se misca serviciul live.
+              Câteva cadre video din alte evenimente, ca să vezi atmosfera, prezența rulotei și
+              felul în care se mișcă serviciul live.
             </p>
           </div>
 
@@ -705,117 +684,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="locatie" className="relative mx-auto max-w-7xl px-6 py-20 lg:px-10">
-          <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr]">
-            <BorderGlow
-              className="border-white/0"
-              borderRadius={36}
-              glowColor="92 42% 63%"
-              backgroundColor={colors.pistachioSoft}
-              glowRadius={34}
-              glowIntensity={0.85}
-              animated
-              colors={[colors.pistachio, '#d4efb4', colors.creamSoft]}
-              fillOpacity={0.3}
-            >
-              <div className="p-8 sm:p-10">
-                <div className="inline-flex rounded-full bg-white/70 px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#3D2314]">
-                  Locatia curenta
-                </div>
-                <div className="mt-8 flex items-start gap-4">
-                  <div className="rounded-full bg-white/75 p-3 text-[#3D2314]">
-                    <MapPin className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <p className="text-3xl text-[#3D2314]" style={{ fontFamily: displayFont }}>
-                      Ne gasesti in perioada 3 aprilie - 3 mai la:
-                    </p>
-                    <p className="mt-3 text-lg leading-8 text-[#3D2314]">
-                      Targul de Paste Craiova, Parcul Nicolae Romanescu.
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-[24px] bg-white/65 p-5 text-[#3D2314]">
-                    <Clock3 className="h-5 w-5" />
-                    <p className="mt-3 text-sm font-semibold uppercase tracking-[0.14em]">
-                      Program extins
-                    </p>
-                    <p className="mt-2 text-base leading-7">
-                      Prezenta constanta pe toata perioada targului, nu doar in weekend.
-                    </p>
-                  </div>
-                  <div className="rounded-[24px] bg-white/65 p-5 text-[#3D2314]">
-                    <Sparkles className="h-5 w-5" />
-                    <p className="mt-3 text-sm font-semibold uppercase tracking-[0.14em]">
-                      Experienta de brand
-                    </p>
-                    <p className="mt-2 text-base leading-7">
-                      Ambianta luminoasa, miros de dulce cald si plating care merita fotografiat.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </BorderGlow>
-
-            <div className="flex flex-col justify-between">
-              <div className="max-w-2xl">
-                <span
-                  className="inline-flex rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em]"
-                  style={{
-                    backgroundColor: 'rgba(147, 197, 114, 0.14)',
-                    color: colors.chocolate,
-                  }}
-                >
-                  Unde ne gasesti & serviciile noastre
-                </span>
-                <h2 className="mt-5 text-4xl sm:text-5xl" style={{ fontFamily: displayFont }}>
-                  Rulota care se potriveste perfect cu evenimente vii.
-                </h2>
-                <p className="mt-5 text-lg leading-8" style={{ color: colors.chocolateSoft }}>
-                  FISTIC functioneaza bine atat ca punct de atractie intr-un targ aglomerat, cat
-                  si ca activare dulce pentru evenimente private sau colaborari corporate.
-                </p>
-              </div>
-
-              <div className="mt-8 grid gap-6 md:grid-cols-3">
-                {serviceCards.map((service, index) => {
-                  const Icon = service.icon;
-
-                  return (
-                    <BorderGlow
-                      key={service.title}
-                      className="h-full border-white/0"
-                      borderRadius={28}
-                      glowColor={index === 1 ? '342 72% 58%' : '92 42% 63%'}
-                      backgroundColor={colors.creamSoft}
-                      glowRadius={24}
-                      glowIntensity={0.65}
-                      colors={[colors.pistachioSoft, colors.raspberry, '#ffd4b8']}
-                      fillOpacity={0.25}
-                    >
-                      <div className="h-full p-6">
-                        <div
-                          className="inline-flex rounded-full p-3"
-                          style={{ backgroundColor: 'rgba(147, 197, 114, 0.15)' }}
-                        >
-                          <Icon className="h-5 w-5" style={{ color: colors.chocolate }} />
-                        </div>
-                        <h3 className="mt-5 text-2xl" style={{ fontFamily: displayFont }}>
-                          {service.title}
-                        </h3>
-                        <p className="mt-3 text-base leading-7" style={{ color: colors.chocolateSoft }}>
-                          {service.text}
-                        </p>
-                      </div>
-                    </BorderGlow>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section id="servicii" className="relative mx-auto max-w-7xl px-6 py-20 lg:px-10">
           <div
             className="absolute inset-x-6 top-8 -z-10 h-[280px] rounded-[44px] blur-3xl lg:inset-x-10"
@@ -834,7 +702,7 @@ export default function Home() {
             }}
           >
             <div className="grid gap-6 sm:gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
-              <div className="max-w-3xl">
+              <div className="mx-auto max-w-3xl text-center lg:mx-0 lg:text-left">
                 <span
                   className="inline-flex rounded-full px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] sm:px-4 sm:py-2 sm:text-sm sm:tracking-[0.18em]"
                   style={{
@@ -855,7 +723,7 @@ export default function Home() {
               </div>
 
               <div
-                className="rounded-[24px] border p-4 sm:rounded-[32px] sm:p-7"
+                className="rounded-[24px] border p-4 text-center sm:rounded-[32px] sm:p-7 lg:text-left"
                 style={{
                   borderColor: 'rgba(224, 64, 102, 0.14)',
                   backgroundColor: 'rgba(255,255,255,0.66)',
@@ -870,7 +738,7 @@ export default function Home() {
                 <p className="mt-3 text-lg leading-7 sm:mt-4 sm:text-xl sm:leading-8" style={{ fontFamily: displayFont, color: colors.chocolate }}>
                   FISTIC – nu vindem doar clătite, ci experiențe.
                 </p>
-                <div className="relative mt-5 w-fit sm:mt-7">
+                <div className="relative mx-auto mt-5 w-fit sm:mt-7 lg:mx-0">
                   <ShinyText
                     text="FISTIC"
                     speed={3.4}
@@ -1097,7 +965,7 @@ export default function Home() {
             }}
           >
             <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr]">
-              <div>
+              <div className="text-center lg:text-left">
                 <span
                   className="inline-flex rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em]"
                   style={{
@@ -1108,16 +976,16 @@ export default function Home() {
                   Contact simplu & rapid
                 </span>
                 <h2 className="mt-5 text-4xl sm:text-5xl" style={{ fontFamily: displayFont }}>
-                  Hai sa vorbim!
+                  Hai să vorbim!
                 </h2>
-                <p className="mt-5 max-w-xl text-lg leading-8" style={{ color: colors.chocolateSoft }}>
-                  Vrei rulota FISTIC la evenimentul tau sau ai o intrebare? Scrie-ne, suna-ne
-                  sau trimite-ne un mesaj rapid pe WhatsApp si stabilim impreuna cea mai dulce
-                  aparitie din program.
+                <p className="mx-auto mt-5 max-w-xl text-lg leading-8 lg:mx-0" style={{ color: colors.chocolateSoft }}>
+                  Vrei rulota FISTIC la evenimentul tău sau ai o întrebare? Scrie-ne, sună-ne
+                  sau trimite-ne un mesaj rapid pe WhatsApp și stabilim împreună cea mai dulce
+                  apariție din program.
                 </p>
 
-                <div className="mt-8 flex flex-wrap gap-3">
-                  {['Targuri', 'Evenimente private', 'Corporate', 'Craiova & imprejurimi'].map(
+                <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
+                  {['Târguri', 'Evenimente private', 'Corporate', 'Activări sezoniere'].map(
                     (item) => (
                       <span
                         key={item}
@@ -1165,7 +1033,7 @@ export default function Home() {
                   <p className="mt-5 text-sm font-semibold uppercase tracking-[0.16em]">WhatsApp</p>
                   <p className="mt-2 text-2xl" style={{ fontFamily: displayFont }}>Mesaj rapid</p>
                   <p className="mt-2 text-sm leading-6" style={{ color: colors.chocolateSoft }}>
-                    Deschide direct conversatia si pornim de la detaliile evenimentului.
+                    Deschide direct conversația și pornim de la detaliile evenimentului.
                   </p>
                 </a>
 
@@ -1186,7 +1054,7 @@ export default function Home() {
                     {emailAddress}
                   </p>
                   <p className="mt-2 text-sm leading-6" style={{ color: colors.chocolateSoft }}>
-                    Potrivit pentru cereri corporate sau colaborari planificate.
+                    Potrivit pentru cereri corporate sau colaborări planificate.
                   </p>
                 </a>
 
@@ -1198,10 +1066,10 @@ export default function Home() {
                   }}
                 >
                   <p className="text-sm font-semibold uppercase tracking-[0.16em]">
-                    Urmareste-ne
+                    Urmărește-ne
                   </p>
                   <p className="mt-3 text-sm leading-6" style={{ color: colors.chocolateSoft }}>
-                    Vezi unde parcam urmatoarea data si cum arata cele mai noi bunatati FISTIC.
+                    Vezi cum arată cele mai noi bunătăți FISTIC și ce mai pregătim.
                   </p>
                   <div className="mt-5 flex flex-wrap gap-3">
                     {socialLinks.map((social) => {
@@ -1256,18 +1124,18 @@ export default function Home() {
                 </span>
               </div>
               <p className="mt-6 text-sm leading-6" style={{ color: colors.chocolateSoft }}>
-                © 2026 FISTIC Craiova. Toate drepturile rezervate.
+                © 2026 FISTIC. Toate drepturile rezervate.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium" style={{ color: colors.chocolateSoft }}>
               <Link href="/termeni-si-conditii" className="transition-colors hover:text-[#3D2314]">
-                Termeni si Conditii
+                Termeni și Condiții
               </Link>
               <Link href="/politica-de-confidentialitate" className="transition-colors hover:text-[#3D2314]">
-                Politica de Confidentialitate
+                Politica de Confidențialitate
               </Link>
-              <Link href="/anpc" className="transition-opacity hover:opacity-85" aria-label="Informatii ANPC">
+              <Link href="/anpc" className="transition-opacity hover:opacity-85" aria-label="Informații ANPC">
                 <Image
                   src={anpcLogo}
                   alt="ANPC"

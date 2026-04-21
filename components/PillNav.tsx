@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { gsap } from 'gsap';
+import ShinyText from '@/components/ShinyText';
 
 export type PillNavItem = {
   label: string;
@@ -27,6 +28,17 @@ export interface PillNavProps {
   initialLoadAnimation?: boolean;
   align?: 'start' | 'center';
   wrapperClassName?: string;
+  scrollBrand?: {
+    triggerId: string;
+    href?: string;
+    primaryText: string;
+    secondaryText: string;
+    primaryColor?: string;
+    primaryShineColor?: string;
+    secondaryColor?: string;
+    secondaryFontFamily?: string;
+    containerClassName?: string;
+  };
 }
 
 const PillNav: React.FC<PillNavProps> = ({
@@ -44,11 +56,13 @@ const PillNav: React.FC<PillNavProps> = ({
   onMobileMenuClick,
   initialLoadAnimation = true,
   align = 'start',
-  wrapperClassName = ''
+  wrapperClassName = '',
+  scrollBrand
 }) => {
   const hasLogo = Boolean(logo);
   const resolvedPillTextColor = pillTextColor ?? baseColor;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrollBrandVisible, setIsScrollBrandVisible] = useState(false);
   const circleRefs = useRef<Array<HTMLSpanElement | null>>([]);
   const tlRefs = useRef<Array<gsap.core.Timeline | null>>([]);
   const activeTweenRefs = useRef<Array<gsap.core.Tween | null>>([]);
@@ -118,11 +132,6 @@ const PillNav: React.FC<PillNavProps> = ({
       document.fonts.ready.then(layout).catch(() => {});
     }
 
-    const menu = mobileMenuRef.current;
-    if (menu) {
-      gsap.set(menu, { visibility: 'hidden', opacity: 0, scaleY: 1, y: 0 });
-    }
-
     if (initialLoadAnimation) {
       const logo = logoRef.current;
       const navItems = navItemsRef.current;
@@ -184,16 +193,15 @@ const PillNav: React.FC<PillNavProps> = ({
     });
   };
 
-  const toggleMobileMenu = () => {
-    const newState = !isMobileMenuOpen;
-    setIsMobileMenuOpen(newState);
+  const setMobileMenuState = useCallback((nextOpen: boolean) => {
+    if (nextOpen === isMobileMenuOpen) return;
+    setIsMobileMenuOpen(nextOpen);
 
     const hamburger = hamburgerRef.current;
-    const menu = mobileMenuRef.current;
 
     if (hamburger) {
       const lines = hamburger.querySelectorAll('.hamburger-line');
-      if (newState) {
+      if (nextOpen) {
         gsap.to(lines[0], { rotation: 45, y: 3, duration: 0.3, ease });
         gsap.to(lines[1], { rotation: -45, y: -3, duration: 0.3, ease });
       } else {
@@ -202,38 +210,71 @@ const PillNav: React.FC<PillNavProps> = ({
       }
     }
 
-    if (menu) {
-      if (newState) {
-        gsap.set(menu, { visibility: 'visible' });
-        gsap.fromTo(
-          menu,
-          { opacity: 0, y: 10, scaleY: 1 },
-          {
-            opacity: 1,
-            y: 0,
-            scaleY: 1,
-            duration: 0.3,
-            ease,
-            transformOrigin: 'top center'
-          }
-        );
-      } else {
-        gsap.to(menu, {
-          opacity: 0,
-          y: 10,
-          scaleY: 1,
-          duration: 0.2,
-          ease,
-          transformOrigin: 'top center',
-          onComplete: () => {
-            gsap.set(menu, { visibility: 'hidden' });
-          }
-        });
-      }
-    }
-
     onMobileMenuClick?.();
-  };
+  }, [ease, isMobileMenuOpen, onMobileMenuClick]);
+
+  const closeMobileMenu = useCallback(() => {
+    setMobileMenuState(false);
+  }, [setMobileMenuState]);
+
+  const toggleMobileMenu = useCallback(() => {
+    setMobileMenuState(!isMobileMenuOpen);
+  }, [isMobileMenuOpen, setMobileMenuState]);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const handlePointerDown = (event: PointerEvent) => {
+      const target = event.target as Node | null;
+      if (!target) return;
+
+      const hamburger = hamburgerRef.current;
+      const menu = mobileMenuRef.current;
+      const clickedInsideHamburger = hamburger?.contains(target);
+      const clickedInsideMenu = menu?.contains(target);
+
+      if (clickedInsideHamburger || clickedInsideMenu) return;
+      closeMobileMenu();
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        closeMobileMenu();
+      }
+    };
+
+    document.addEventListener('pointerdown', handlePointerDown);
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [closeMobileMenu, isMobileMenuOpen]);
+
+  useEffect(() => {
+    if (!scrollBrand) return;
+
+    const updateScrollBrand = () => {
+      const trigger = document.getElementById(scrollBrand.triggerId);
+      if (!trigger) {
+        setIsScrollBrandVisible(false);
+        return;
+      }
+
+      const triggerBottom = trigger.getBoundingClientRect().bottom;
+      setIsScrollBrandVisible(triggerBottom <= 54);
+    };
+
+    updateScrollBrand();
+    window.addEventListener('scroll', updateScrollBrand, { passive: true });
+    window.addEventListener('resize', updateScrollBrand);
+
+    return () => {
+      window.removeEventListener('scroll', updateScrollBrand);
+      window.removeEventListener('resize', updateScrollBrand);
+    };
+  }, [scrollBrand]);
 
   const isExternalLink = (href: string) =>
     href.startsWith('http://') ||
@@ -263,7 +304,7 @@ const PillNav: React.FC<PillNavProps> = ({
         }`}
       >
         <nav
-          className={`w-full md:w-max flex items-center justify-between md:justify-start box-border ${className}`}
+          className={`w-full flex items-center justify-between box-border md:justify-start ${className}`}
           aria-label="Primary"
           style={cssVars}
         >
@@ -322,6 +363,42 @@ const PillNav: React.FC<PillNavProps> = ({
                 </span>
               </a>
             ))}
+
+          {scrollBrand && (
+            <a
+              href={scrollBrand.href ?? '#hero'}
+              aria-label="Mergi la începutul paginii"
+              className={`ml-0 overflow-hidden rounded-full transition-[max-width,opacity,transform,margin] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                isScrollBrandVisible
+                  ? 'pointer-events-auto mr-3 max-w-[190px] translate-x-0 opacity-100 md:mr-2'
+                  : 'pointer-events-none mr-0 max-w-0 -translate-x-2 opacity-0'
+              } ${scrollBrand.containerClassName ?? ''}`}
+            >
+              <span
+                className="relative flex h-[var(--nav-h)] min-w-[142px] items-center justify-center rounded-full px-4 shadow-[0_14px_34px_rgba(17,12,10,0.14)]"
+                style={{ background: 'var(--base, #000)' }}
+              >
+                <ShinyText
+                  text={scrollBrand.primaryText}
+                  speed={3.2}
+                  color={scrollBrand.primaryColor ?? 'var(--pill-bg, #fff)'}
+                  shineColor={scrollBrand.primaryShineColor ?? '#ffffff'}
+                  spread={95}
+                  className="text-sm font-extrabold tracking-[0.2em] md:text-[15px]"
+                />
+                <span
+                  className="pointer-events-none absolute left-1/2 top-[56%] text-[16px] leading-none md:top-[50%] md:text-[20px]"
+                  style={{
+                    color: scrollBrand.secondaryColor ?? 'var(--hover-text, #fff)',
+                    fontFamily: scrollBrand.secondaryFontFamily,
+                    transform: 'translateX(-75%) rotate(-7deg)'
+                  }}
+                >
+                  {scrollBrand.secondaryText}
+                </span>
+              </span>
+            </a>
+          )}
 
           <div
             ref={navItemsRef}
@@ -449,7 +526,12 @@ const PillNav: React.FC<PillNavProps> = ({
 
       <div
         ref={mobileMenuRef}
-        className="md:hidden absolute top-[3em] left-6 right-6 rounded-[27px] shadow-[0_8px_32px_rgba(0,0,0,0.12)] z-[998] origin-top"
+        aria-hidden={!isMobileMenuOpen}
+        className={`absolute left-6 right-6 top-[3em] z-[998] rounded-[27px] shadow-[0_8px_32px_rgba(0,0,0,0.12)] transition-all duration-300 ease-[cubic-bezier(0.25,0.1,0.25,1)] md:hidden ${
+          isMobileMenuOpen
+            ? 'visible translate-y-0 opacity-100 pointer-events-auto'
+            : 'invisible -translate-y-2 opacity-0 pointer-events-none'
+        }`}
         style={{
           ...cssVars,
           background: 'var(--base, #f0f0f0)'
@@ -482,7 +564,7 @@ const PillNav: React.FC<PillNavProps> = ({
                     style={defaultStyle}
                     onMouseEnter={hoverIn}
                     onMouseLeave={hoverOut}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={closeMobileMenu}
                   >
                     {item.label}
                   </Link>
@@ -493,7 +575,7 @@ const PillNav: React.FC<PillNavProps> = ({
                     style={defaultStyle}
                     onMouseEnter={hoverIn}
                     onMouseLeave={hoverOut}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={closeMobileMenu}
                   >
                     {item.label}
                   </a>
