@@ -492,7 +492,7 @@ export default function Home() {
                 backgroundColor: 'rgba(253, 246, 227, 0.72)',
               }}
             >
-              <span className="font-semibold">3 aprilie - 3 mai</span>, cu posibilitate de activări
+              <span className="font-semibold">3 aprilie - 3 mai la Târgul de Paște din Craiova</span>, cu posibilitate de activări
               private și corporate în perioada evenimentului.
             </div>
           </div>
