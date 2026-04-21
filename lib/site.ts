@@ -1,10 +1,10 @@
 export const siteConfig = {
   name: 'FISTIC',
   legalName: 'FISTIC Craiova',
-  title: 'FISTIC | Clatite si mini-gogosi in Craiova',
+  title: 'FISTIC | Clătite și mini-gogoși',
   description:
-    'FISTIC Craiova aduce clatite fine, mini-gogosi si deserturi pentru targuri, evenimente private, activari corporate si colaborari HoReCa.',
-  shortDescription: 'Clatite fine si mini-gogosi pentru targuri si evenimente in Craiova.',
+    'FISTIC aduce clătite fine, mini-gogoși și deserturi pentru târguri, evenimente private, activări corporate și colaborări HoReCa.',
+  shortDescription: 'Clătite fine și mini-gogoși pentru târguri și evenimente.',
   url:
     process.env.NEXT_PUBLIC_SITE_URL ??
     (process.env.VERCEL_PROJECT_PRODUCTION_URL
